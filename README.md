@@ -20,7 +20,7 @@ After stage 1, the private states of both players will change according to the M
  
 ![Picture2](https://github.com/Li-Lichun-Lab/stochastic-Bayesian-games/blob/main/pics/Picture2.png)
  
-### 3. Primal game and its LPs in finite horizon. 
+### 3. Primal game and its LPs in finite horizon (action based strategy). 
 The primal game is as what we explained in Section 1. If a player remembers all available information and uses it to decide its current strategy, we can solve the following LPs to compute the optimal strategy for player 1 and player 2. Please find the details in the original paper ???????????????.
 
 LP for player 1:
@@ -41,7 +41,38 @@ LP for player 2:
 
 **Inputs:** ?????????????? detailed explanation of the inputs if other than something introduced in section 2
 
+**Outputs:** ???????????????? detailed explanation of outputs and how to use them. Soemthing like this. e.g. if player 1's history information at stage 3 is (give a table to clearly explain the history information), we can call function ??? to get the index i of the corresponding strategy in sigma, and sigma(:,i) is the strategy corresponding to that history information. Sometimes, sigma contains NaN or Inf elements. It means that the possibility of the corresponding history is 0. You may also want to explain how to get the payoff vector. 
+
+### 4. Dual games and its LPs in finite horizon (actoin based strategy). 
+The size of the LPs of the primal game increases exponentially with respect to the horizon of the game. Therefore, the action based strategy doesn't work well in long horizon. During the process of develop sufficient statistic based strategy, we find that the sufficient statistic in the primal game is not fully accessible to either player. To develop sufficient statistic based strategy, dual games are introduced.
+
+**Type 1 dual game** is played exactly the same as in the primal game except for the first stage. In the first stage, player 1 chooses its own state, and there is a initial payoff vector, exactly the same size of the initial probabilit of player 1. If player 1 chooses a private state, the associated initial payoff will be added to its stage 1 payoff. 
+
+Similarly, **Type 2 dual game** is also played exactly the same as in the primal game except for the first stage. In the first stage, player 2 chooses its own state, and there is a initial payoff vector, exactly the same size of the initial probabilit of player 2. If player 2 chooses a private state, the associated initial payoff will be added to its stage 1 payoff. 
+
+The LPs in the dual game is a simple extension of the LPs in the primal game. We can compute the optimal strategies of the players by solving these LPs. 
+
+LP for player 1:
+
+![Picture5](https://github.com/Li-Lichun-Lab/stochastic-Bayesian-games/blob/main/pics/Picture5.png)
+
+LP for player 2:
+
+![Picture6](https://github.com/Li-Lichun-Lab/stochastic-Bayesian-games/blob/main/pics/Picture6.png)
+ 
+#### 4.1 The LP code of player 1 (provided in ???????)
+
+**Inputs:** ?????????????? detailed explanation of the inputs if other than something introduced in section 2
+
 **Outputs:** ???????????????? detailed explanation of outputs and how to use them. 
+
+#### 4.2 The LP code of player 2 (provided in ??????????????)
+
+**Inputs:** ?????????????? detailed explanation of the inputs if other than something introduced in section 2
+
+**Outputs:** ???????????????? detailed explanation of outputs and how to use them. 
+
+### 5. Dual games and the sufficient strategy update
 
 
 
