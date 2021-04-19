@@ -3,6 +3,7 @@ In dynamic stochasti Bayesian games, the game will be played for several, say 3,
 
 #### step 1: Initialization
 In this step, you need to tell the code ????? the basic information about the game. ????? Details about the initial parameters ??????????????
+Please also give a picture of the initialization part
 
 #### step 2: Compute the optimal strategy
 Call function ????. It will compute the both the optimal strategy ????, the game value ????, and the vector payoff ??? in case you need it in the dual game.
