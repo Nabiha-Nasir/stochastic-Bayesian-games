@@ -11,18 +11,25 @@ We are interested in a computationally efficient way to find the optimal solutio
 The initial probability distribution of the two private states are. We assume that the initial states are chosen independently. 
 
 The one stage **payoff G(at ,kt , bt ,lt)** is decided by both players’ private states and actions. We prefer to write it in a **matrix form G_{kt,lt}(at, bt)**. Gkt,lt is a payoff matrix when the private states are kt and lt. player 1 decides row index (at), and player 2 decides the column index(bt). Take the following payoff matrices as an example. If player 1’s private state k=2 and player 2’s private state l=1, the corresponding payoff matrix is the third matrix highlighted. If player 1 plays action 1 and player 2 plays action 2, the current one stage payoff is 107.38, the element in row 1 column 2 of the matrix.
+
 ![Picture1](https://github.com/Li-Lichun-Lab/stochastic-Bayesian-games/blob/main/pics/Picture1.png)
 
 The private states are initially chosen according to the independent **initial probability distribution ‘p’ for player 1, and ‘q’ for player 2**. 
 
 After stage 1, the private states of both players will change according to the Markovian rules that depend on the current actions and the current private states of both players. **Player 1’s state jumping (or transition) rule is P_{ab}(k,k’)**. It means the probability of jumping from state k to k’ if current action pair is (a,b). **Player 2’s state jumping (or transition) rule is Q_{ab}(l,l’)**. It means the probability of jumping from state l to l’ if the current action pair is (a,b). Let’s take the following transition matrices as an example. Assume the current action pair is (a=1, b=2). That is player 1 plays row 1 and player 2 plays column 2. In this case, the transition matrices for player 1 and 2 are highlighted as in the figure. If player 1’s current private state is 3, the probability of its next private state being 2 will be 0.4, the element in row 3 column 2 of the highlighted transition matrix P. If player 2’s current state is 1, the probability of its private state being 2 will be 0.8, the element in row 1 column 2 of highlight transition matrix Q. 
  
+![Picture2](https://github.com/Li-Lichun-Lab/stochastic-Bayesian-games/blob/main/pics/Picture2.png)
+ 
 ### 3. Primal game and its LPs in finite horizon. 
 The primal game is as what we explained in Section 1. If a player remembers all available information and uses it to decide its current strategy, we can solve the following LPs to compute the optimal strategy for player 1 and player 2. Please find the details in the original paper ???????????????.
 
 LP for player 1:
- 
+
+![Picture3](https://github.com/Li-Lichun-Lab/stochastic-Bayesian-games/blob/main/pics/Picture3.png)
+
 LP for player 2:
+
+![Picture4](https://github.com/Li-Lichun-Lab/stochastic-Bayesian-games/blob/main/pics/Picture4.png)
  
 #### 3.1 The LP code of player 1 (provided in ???????)
 
