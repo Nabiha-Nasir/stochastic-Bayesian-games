@@ -18,15 +18,19 @@ After stage 1, the private states of both players will change according to the M
  
 ### 3. Primal game and its LPs in finite horizon. 
 The primal game is as what we explained in Section 1. If a player remembers all available information and uses it to decide its current strategy, we can solve the following LPs to compute the optimal strategy for player 1 and player 2. Please find the details in the original paper ???????????????.
+
 LP for player 1:
  
 LP for player 2:
  
 ####3.1 The LP code of player 1 (provided in ???????)
 **Inputs: ** ?????????????? detailed explanation of the inputs if other than something introduced in section 2
+
 **Outputs: ** ???????????????? detailed explanation of outputs and how to use them. 
+
 #### 3.2 The LP code of player 2 (provided in ??????????????)
 **Inputs: ** ?????????????? detailed explanation of the inputs if other than something introduced in section 2
+
 **Outputs: ** ???????????????? detailed explanation of outputs and how to use them. 
 
 
