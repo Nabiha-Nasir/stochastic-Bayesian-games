@@ -1,8 +1,8 @@
-# stochastic-Bayesian-games
-### 1. LP formulas of two-player zero-sum stochastic Bayesian games
-
+# LPs for two-player zero-sum stochastic-Bayesian-games
+### 1. Two-player zero-sum stochastic Bayesian games
 Two-player zero-sum Bayesian games are dynamic games where two players play against each other for several stages. Sometimes, they will play against each other forever. In this game, every player has its own private information (which is also called the private state), say 'k' for player 1 (maximizer) and 'l' for player 2 (minimizer). At every stage, the players need to take some action based on the information they have, and the one-stage payoff is decided by both payers' actions and private states. The game is player for several stages. When the game evolves to the next stage, the player's private states will change according to a Markovian rule based on the current private states and the current actions of both players. If we want to benefit from long time behavior, playing greedily in the current stage might not be the best solution. 
 We are interested in a computationally efficient way to find the optimal solution for the players. To this purpose, we build this project.
+
 ### 2. Some terminologies.
 **Player 1** is the maximizer and also the row player (you will know what we mean by ‘row’ or ‘column’ player when we introduce the payoff matrix). Its action and private state at stage t are indicated by **at** and **kt**. We use A and K to denote the set of actions and private states of player 1.
 
