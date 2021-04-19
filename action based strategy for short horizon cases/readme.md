@@ -10,6 +10,8 @@ Call function ????. It will compute the both the optimal strategy ????, the game
 #### step 3: Run the game
 In stage t, you need to first update your history observation which is organized as (k1,a1,b1,k2,a2,b2,k3,...,kt). Use function ???? to calculate the corresponding index of the strategy in ???. Draw an action according to ????????. 
 
+Stop if arrive at the terminal stage.
+
 
 ### 2. Algorithm for player 2 in short horizon cases (action based strategy)
 ??????? please fill in this section for player 2 ?????????????????
