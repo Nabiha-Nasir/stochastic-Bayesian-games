@@ -11,7 +11,7 @@ We are interested in a computationally efficient way to find the optimal solutio
 The initial probability distribution of the two private states are. We assume that the initial states are chosen independently. 
 
 The one stage **payoff G(at ,kt , bt ,lt)** is decided by both players’ private states and actions. We prefer to write it in a **matrix form G_{kt,lt}(at, bt)**. Gkt,lt is a payoff matrix when the private states are kt and lt. player 1 decides row index (at), and player 2 decides the column index(bt). Take the following payoff matrices as an example. If player 1’s private state k=2 and player 2’s private state l=1, the corresponding payoff matrix is the third matrix highlighted. If player 1 plays action 1 and player 2 plays action 2, the current one stage payoff is 107.38, the element in row 1 column 2 of the matrix.
-![Picture1](https://your-copied-image-address)
+![Picture1](https://github.com/Li-Lichun-Lab/stochastic-Bayesian-games/blob/main/pics/Picture1.png)
 
 The private states are initially chosen according to the independent **initial probability distribution ‘p’ for player 1, and ‘q’ for player 2**. 
 
