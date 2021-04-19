@@ -16,5 +16,18 @@ The private states are initially chosen according to the independent **initial p
 
 After stage 1, the private states of both players will change according to the Markovian rules that depend on the current actions and the current private states of both players. **Player 1’s state jumping (or transition) rule is P_{ab}(k,k’)**. It means the probability of jumping from state k to k’ if current action pair is (a,b). **Player 2’s state jumping (or transition) rule is Q_{ab}(l,l’)**. It means the probability of jumping from state l to l’ if the current action pair is (a,b). Let’s take the following transition matrices as an example. Assume the current action pair is (a=1, b=2). That is player 1 plays row 1 and player 2 plays column 2. In this case, the transition matrices for player 1 and 2 are highlighted as in the figure. If player 1’s current private state is 3, the probability of its next private state being 2 will be 0.4, the element in row 3 column 2 of the highlighted transition matrix P. If player 2’s current state is 1, the probability of its private state being 2 will be 0.8, the element in row 1 column 2 of highlight transition matrix Q. 
  
-### 3. Primal game and dual games
+### 3. Primal game and its LPs in finite horizon. 
+The primal game is as what we explained in Section 1. If a player remembers all available information and uses it to decide its current strategy, we can solve the following LPs to compute the optimal strategy for player 1 and player 2. Please find the details in the original paper ???????????????.
+LP for player 1:
+ 
+LP for player 2:
+ 
+####3.1 The LP code of player 1 (provided in ???????)
+**Inputs: ** ?????????????? detailed explanation of the inputs if other than something introduced in section 2
+**Outputs: ** ???????????????? detailed explanation of outputs and how to use them. 
+#### 3.2 The LP code of player 2 (provided in ??????????????)
+**Inputs: ** ?????????????? detailed explanation of the inputs if other than something introduced in section 2
+**Outputs: ** ???????????????? detailed explanation of outputs and how to use them. 
+
+
 
