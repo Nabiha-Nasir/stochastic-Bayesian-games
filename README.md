@@ -5,8 +5,11 @@ Two-player zero-sum Bayesian games are dynamic games where two players play agai
 We are interested in a computationally efficient way to find the optimal solution for the players. To this purpose, we build this project.
 ### 2. Some terminologies.
 **Player 1** is the maximizer and also the row player (you will know what we mean by ‘row’ or ‘column’ player when we introduce the payoff matrix). Its action and private state at stage t are indicated by ‘at’ and ‘kt’. We use A and K to denote the set of actions and private states of player 1.
+
 **Player 2** is the minimizer and also the column player. Its action and private state at stage t are indicated by ‘bt’ and ‘lt’. We use B and L to denote the set of actions and private states of player 2.
+
 The initial probability distribution of the two private states are. We assume that the initial states are chosen independently. 
+
 The one stage **payoff G(at ,kt , bt ,lt)** is decided by both players’ private states and actions. We prefer to write it in a **matrix form Gkt,lt(at, bt)**. Gkt,lt is a payoff matrix when the private states are kt and lt. player 1 decides row index (at), and player 2 decides the column index(bt). Take the following payoff matrices as an example. If player 1’s private state k=2 and player 2’s private state l=1, the corresponding payoff matrix is the third matrix highlighted. If player 1 plays action 1 and player 2 plays action 2, the current one stage payoff is 107.38, the element in row 1 column 2 of the matrix.
  
 The private states are initially chosen according to the independent **initial probability distribution ‘p’ for player 1, and ‘q’ for player 2**. 
