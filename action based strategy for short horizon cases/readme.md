@@ -1,5 +1,5 @@
 ### 1. Algorithm for player 1 in short horizon cases (action based strategy)
-In dynamic stochastic Bayesian games, the game will be played for several, say 3, stages. Assume you are the maximizer at stage 2. So far, you observation is as follows. At stage 1, your private state is 2, you played action 3, and the minimizer played action 1. The one stage payoff won't be revealed until the end of the game. At stage 2, your private state jumps to 1. Based on the observed information, what is the optimal strategy for you? 
+In dynamic stochastic Bayesian games, the game will be played for several, say 3, stages. Assume you are the maximizer at stage 2. So far, you observation is as follows. At stage 1, your private state is 2, you played action 2, and the minimizer played action 1. The one stage payoff won't be revealed until the end of the game. At stage 2, your private state jumps to 1. Based on the observed information, what is the optimal strategy for you? 
 
 #### step 1: Initialization
 In this step, you need to tell the code ????? the basic information about the game. ????? Details about the initial parameters ??????????????
