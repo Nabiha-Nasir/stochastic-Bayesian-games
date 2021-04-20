@@ -37,7 +37,11 @@ LP for player 2:
 
 **Inputs:** ?????????????? detailed explanation of the inputs if other than something introduced in section 2
 
-**Outputs:** ???????????????? detailed explanation of outputs and how to use them. 
+**Outputs:** ???????????????? detailed explanation of outputs and how to use them. For example, at stage 1 if the information set is k1=3 then player 1 will take action 1 with probability 1 and action 2 with probability 0. If the information set is (k1,a1,b1,k2)=(1 1 1 3) then player 1 will take action 1 with probability 0 and action 2 with probability 1.
+
+![image](https://user-images.githubusercontent.com/62413691/115451842-ac989780-a1eb-11eb-80aa-05f2a7d7df93.png)
+
+
 
 #### 3.2 The LP code of player 2 (provided in ??????????????)
 
