@@ -21,7 +21,9 @@ After stage 1, the private states of both players will change according to the M
 ![Picture2](https://github.com/Li-Lichun-Lab/stochastic-Bayesian-games/blob/main/pics/Picture2.png)
  
 ### 3. Primal game and its LPs in finite horizon (action based strategy). 
-The primal game is as what we explained in Section 1. If a player remembers all available information and uses it to decide its current strategy, we can solve the following LPs to compute the optimal strategy for player 1 and player 2. Please find the details in the original paper ???????????????.
+The primal game is as what we explained in Section 1. If a player remembers all available information and uses it to decide its current strategy, we can solve the following LPs to compute the optimal strategy for player 1 and player 2. Please find the details in the original paper [[1]](#1).
+
+
 
 LP for player 1:
 
@@ -105,3 +107,11 @@ The sufficien statistic of player 2 in type 1 dual game is updated by the follow
 If your application has short horizon (2-3 stages), the action based strategy introduced in Section 3 is suitable. The detailed usage is provided in folder ??????
 
 If your application has long horizon (>3 stages), the sufficient statistic based strategy is more suitable. The detailed algorithm based on the LPs introduced above is given in folder ???? and ?????
+
+
+
+## References
+<a id="1">[1]</a> 
+DN. N. Orpa and L. Li (2020). 
+“Lp formulations of two-player zero-sum stochastic bayesian finite horizon games”
+
