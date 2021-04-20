@@ -33,7 +33,7 @@ LP for player 2:
 
 ![Picture4](https://github.com/Li-Lichun-Lab/stochastic-Bayesian-games/blob/main/pics/Picture4.png)
  
-#### 3.1 The LP code of player 1 (provided in ???????)
+#### 3.1 The LP code of player 1 (provided in [[1]](#1))
 
 **Inputs:** ?????????????? detailed explanation of the inputs if other than something introduced in section 2
 
