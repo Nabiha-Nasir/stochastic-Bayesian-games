@@ -33,13 +33,10 @@ LP for player 2:
 
 **Inputs:** The primal game LP of player 1 can be solved by using the function [sigma,nu] = fn_primal_game_p1(T,A,B,k,l,lm,P,Q,p,q,G). Here, T is the total number of stages in the game, A and B are the number of actions of player 1 and 2, respectively. k is the number of private state of player 1 and l is the number of private state of player 2. lm is to create discounted game. The value of lm should be between 0 to 1. If lm<1 and the number of stages of the game is finite then it creates truncated discounted game. If lm<1 and the number of stages of the game is infinite then it creates discounted game. P is the transition matrices of player 1. The matrix form of P is **P_{at, bt}(k,k')**. It provides a probability matrix of player 1's state to jump from one state (k) to another state (k') when the current action of player 1 is at and player 2 is bt. Q is the transition matrices of player 2. The matrix form of Q is **Q_{at, bt}(l,l')**. It provides a probability matrix of player 2's state to jump from one state (l) to another state (l') when the current action of player 1 is at and player 2 is bt. p is a row vector which the indipendent initial probability of player 1's initial state. For example, p=[p1 p2 p3] where p1 is the probability of player 1's initial state to be 1. Similaryly, q is a row vector which the indipendent initial probability of player 2's initial state. For example, q=[q1 q2 q3] where q1 is the probability of player 2's initial state to be 1. G is the payoff matrix and its matrix form is G_{kt,lt}(at, bt).
 
-**Outputs:** ???????????????? detailed explanation of outputs and how to use them. For example, at stage 1 if the information set is k1=3 then player 1 will take action 1 with probability 1 and action 2 with probability 0. If the information set is (k1,a1,b1,k2)=(1 1 1 3) then player 1 will take action 1 with probability 0 and action 2 with probability 1.
-
-![image](https://user-images.githubusercontent.com/62413691/115451842-ac989780-a1eb-11eb-80aa-05f2a7d7df93.png)
+**Outputs:** From the LP code of primal game we get two outputs sigma and nu. sigma is the optimal strategy of player 1 using which player 1 can take optimal actions. The function **[a] = choose_action(sigma,A,sigma_col_index_new(A,B,k,k_present,Ha,t,n_is1))** is used to get the optimal action of player 1 at stage t when its current state is k_present, the available information set is Ha, total number of possible information sets of player 1 at all the stages n_is1.   
 
 
-
-#### 3.2 The LP code of player 2 (provided in ??????????????)
+#### 3.2 The LP code of player 2 (provided in [fn_primal_game_p2](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/dfbf456cfe6fcf82a5be09ab2a3f8eab4fe3e56c/action%20based%20strategy%20for%20short%20horizon%20cases/fn_primal_game_p2.m))
 
 **Inputs:** ?????????????? detailed explanation of the inputs if other than something introduced in section 2
 
