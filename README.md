@@ -44,7 +44,7 @@ nu is the initial vector payoff over player 2's state. nu is the probability dis
 mu is the initial vector payoff over player 1's state. mu is the probability distribution over player 1's private state k. It is one of the sufficient statistics elements of player 2 in dual game. We will use this term in dual game LP. 
 
 ### 4. Dual games and its LPs in finite horizon (actoin based strategy). 
-The size of the LPs of the primal game increases exponentially with respect to the horizon of the game. Therefore, the action based strategy doesn't work well in long horizon. During the process of develop sufficient statistic based strategy, we find that the sufficient statistic in the primal game is not fully accessible to either player (explained in the original papers ???? and ????). To develop sufficient statistic based strategy, dual games are introduced.
+The size of the LPs of the primal game increases exponentially with respect to the horizon of the game. Therefore, the action based strategy doesn't work well in long horizon. During the process of developing sufficient statistic based strategy, we find that the sufficient statistic in the primal game is not fully accessible to either players (explained in the original paper [[1]](#1)). To develop sufficient statistic based strategy, dual games are introduced.
 
 **Type 1 dual game** is played exactly the same as in the primal game except for the first stage. In the first stage, player 1 chooses its own state, and there is a initial vector payoff, exactly the same size of the initial probability of player 1. If player 1 chooses a private state, the associated initial payoff will be added to its stage 1 payoff. 
 
