@@ -92,11 +92,13 @@ The sufficien statistic of player 2 in type 1 dual game is updated by the follow
 
 **Inputs:** The LP of player 1 can be solved by using the function **[alpha_vector] = fn_dual_game_2nd_P1(T,A,B,k,l,lm,G,P,Q,p,nu,X_star)**. Here, T is the total number of stages in the game, A and B are the number of actions of player 1 and 2, respectively. k is the number of private state of player 1 and l is the number of private state of player 2. lm is to create discounted game. The value of lm should be between 0 to 1. If lm<1 and the number of stages of the game is finite then it creates truncated discounted game. If lm<1 and the number of stages of the game is infinite then it creates discounted game. P is the transition matrices of player 1. The matrix form of P is **P_{at, bt}(k,k')**. It provides a probability matrix of player 1's state to jump from one state (k) to another state (k') when the current action of player 1 is at and player 2 is bt. Q is the transition matrices of player 2. The matrix form of Q is **Q_{at, bt}(l,l')**. It provides a probability matrix of player 2's state to jump from one state (l) to another state (l') when the current action of player 1 is at and player 2 is bt. p is a row vector which the independent initial probability of player 1's initial state. For example, p=[p1 p2 p3] where p1 is the probability of player 1's initial state to be 1. G is the payoff matrix and its matrix form is G_{kt,lt}(at, bt). nu is the initial vector payoff over player 2's state which provides the probability distribution over player 2's private state l. We get the value of nu from primal game LP of player 1. X_star is the optimal strategy of player 1 at stage 1 which we can get using primal or dual game LP. 
 
-**Outputs:** From this code we get the updated vector payoff alpha_vector which is a row vector. It provides the vector payoff over player 2's state for all possible action set (at,bt) of the current stage t. If the current action of player 1 and 2 is 'a' and 'b' then we can get the updated mu using the following two line of code.
+**Outputs:** From this code we get the updated vector payoff alpha_vector which is a row vector. It provides the vector payoff over player 2's state for all possible action set (at,bt) of the current stage t. If the current action of player 1 and 2 is 'a' and 'b' then we can get the updated nu using the following two line of code.
 
 col_index_alpha=(a-1)* B* l+(b-1)* l
 
-nu=alpha_vector(1,col_index_alpha+1:col_index_alpha+l);
+nu_plus=alpha_vector(1,col_index_alpha+1:col_index_alpha+l)
+
+The size of nu_plus should be same as the initial probability of player 2's state q.
 
 #### 5.2 The LP code of player 2 (provided in [fn_dual_game_2nd_P2](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/ad98cf1406b1d8756714a8e42e933cb0e46423f3/finite%20long%20horizon/window_by_window_method/unitilities/fn_dual_game_2nd_P2.m))
 
@@ -104,8 +106,11 @@ nu=alpha_vector(1,col_index_alpha+1:col_index_alpha+l);
 
 **Outputs:** From this code we get the updated vector payoff beta_vector which is a row vector. It provides the vector payoff over player 1's state for all possible action set (at,bt) of the current stage t. If the current action of player 1 and 2 is 'a' and 'b' then we can get the updated mu using the following two line of code.
 
-col_index_beta=(a-1)* B* k+(b-1)* k;
-mu=beta_vector(1,col_index_beta+1:col_index_beta+k);
+col_index_beta=(a-1)* B* k+(b-1)* k
+
+mu_plus=beta_vector(1,col_index_beta+1:col_index_beta+k)
+
+The size of mu_plus should be same as the initial probability of player 1's state p.
 
 ### 6. How to use these codes
 
