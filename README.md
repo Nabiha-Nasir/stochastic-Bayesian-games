@@ -14,14 +14,12 @@ The one stage **payoff G(at ,kt , bt ,lt)** is decided by both players’ privat
 
 The private states are initially chosen according to the independent **initial probability distribution ‘p’ for player 1, and ‘q’ for player 2**. 
 
-After stage 1, the private states of both players will change according to the Markovian rules that depend on the current actions and the current private states of both players. **Player 1’s state jumping (or transition) rule is P_{ab}(k,k’)**. It means the probability of jumping from state k to k’ if current action pair is (a,b). **Player 2’s state jumping (or transition) rule is Q_{ab}(l,l’)**. It means the probability of jumping from state l to l’ if the current action pair is (a,b). Let’s take the following transition matrices as an example. Assume the current action pair is (a=1, b=2). That is player 1 plays row 1 and player 2 plays column 2. In this case, the transition matrices for player 1 and 2 are highlighted as in the figure. If player 1’s current private state is 3, the probability of its next private state being 2 will be 0.4, the element in row 3 column 2 of the yellow highlighted transition matrix P. If player 2’s current state is 1, the probability of its private state being 2 will be 0.8, the element in row 1 column 2 of green  highlighted transition matrix Q. 
+After stage 1, the private states of both players will change according to the Markovian rules that depend on the current actions and the current private states of both players. **Player 1’s state jumping (or transition) rule is P_{ab}(k,k’)**. It means the probability of jumping from state k to k’ if current action pair is (a,b). **Player 2’s state jumping (or transition) rule is Q_{ab}(l,l’)**. It means the probability of jumping from state l to l’ if the current action pair is (a,b). Let’s take the following transition matrices as an example. Assume the current action pair is (a=1, b=2). That is player 1 plays row 1 and player 2 plays column 2. In this case, the transition matrices for player 1 and 2 are highlighted as in the figure. If player 1’s current private state is 3, the probability of its next private state being 2 will be 0.4, the element in row 3 column 2 of the highlighted (yellow) transition matrix P. If player 2’s current state is 1, the probability of its private state being 2 will be 0.8, the element in row 1 column 2 of highlighted (green) transition matrix Q. 
 
 <img src="https://user-images.githubusercontent.com/62413691/115487146-1170e380-a226-11eb-899a-0cad8a113681.png" width="500" height="100">
  
 ### 3. Primal game and its LPs in finite horizon (action based strategy). 
 The primal game is as what we explained in Section 1. If a player remembers all available information and uses it to decide its current strategy, we can solve the following LPs to compute the optimal strategy for player 1 and player 2. Please find the details in the original paper [[1]](#1).
-
-
 
 LP for player 1:
 
@@ -31,9 +29,13 @@ LP for player 2:
 
 ![Picture4](https://github.com/Li-Lichun-Lab/stochastic-Bayesian-games/blob/main/pics/Picture4.png)
  
-#### 3.1 The LP code of player 1 (provided in [[1]](#1))
+#### 3.1 The LP code of player 1 (provided in [fn_primal_game_p1](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/b50c99afba0ce52242aa850bf6b9d7db2a302946/action%20based%20strategy%20for%20short%20horizon%20cases/fn_primal_game_p1.m))
 
 **Inputs:** ?????????????? detailed explanation of the inputs if other than something introduced in section 2. Initial belief of player 1 and 2 are p and q, respectively. lm is the discounted rate for discounted payoff.  
+
+The primal game LP of player 1 can be solved by using the function [sigma,nu] = fn_primal_game_p1(T,A,B,k,l,lm,P,Q,p,q,G). 
+
+
 
 **Outputs:** ???????????????? detailed explanation of outputs and how to use them. For example, at stage 1 if the information set is k1=3 then player 1 will take action 1 with probability 1 and action 2 with probability 0. If the information set is (k1,a1,b1,k2)=(1 1 1 3) then player 1 will take action 1 with probability 0 and action 2 with probability 1.
 
