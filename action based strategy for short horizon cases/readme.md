@@ -16,3 +16,7 @@ Stop if arrive at the terminal stage.
 
 ### 2. Algorithm for player 2 in short horizon cases (action based strategy)
 ??????? please fill in this section for player 2 ?????????????????
+
+
+
+The 'utilities' folder contains all the required function and files to run the code of primal and dual game LP
