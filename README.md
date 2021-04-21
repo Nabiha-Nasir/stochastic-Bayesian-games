@@ -31,9 +31,7 @@ LP for player 2:
  
 #### 3.1 The LP code of player 1 (provided in [fn_primal_game_p1](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/b50c99afba0ce52242aa850bf6b9d7db2a302946/action%20based%20strategy%20for%20short%20horizon%20cases/fn_primal_game_p1.m))
 
-**Inputs:** ?????????????? detailed explanation of the inputs if other than something introduced in section 2. Initial belief of player 1 and 2 are p and q, respectively. lm is the discounted rate for discounted payoff.  
-
-The primal game LP of player 1 can be solved by using the function [sigma,nu] = fn_primal_game_p1(T,A,B,k,l,lm,P,Q,p,q,G). 
+**Inputs:** The primal game LP of player 1 can be solved by using the function [sigma,nu] = fn_primal_game_p1(T,A,B,k,l,lm,P,Q,p,q,G). Here, T is the total number of stages in the game, A and B are the number of actions of player 1 and 2, respectively. k is the number of private state of player 1 and l is the number of private state of player 2. lm is to create discounted game. The value of lm should be between 0 to 1. If lm<1 and the number of stages of the game is finite then it creates truncated discounted game. If lm<1 and the number of stages of the game is infinite then it creates discounted game. P is the transition matrices of player 1. The matrix form of P is **P_{at, bt}(k,k')**. It provides a probability matrix of player 1's state to jump from one state (k) to another state (k') when the current action of player 1 is at and player 2 is bt. Q is the transition matrices of player 2. The matrix form of Q is **Q_{at, bt}(l,l')**. It provides a probability matrix of player 2's state to jump from one state (l) to another state (l') when the current action of player 1 is at and player 2 is bt. p is the indipendent initial probability of player 1's initial state and 
 
 
 
