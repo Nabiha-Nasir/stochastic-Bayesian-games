@@ -94,22 +94,24 @@ The sufficien statistic of player 2 in type 1 dual game is updated by the follow
 
 **Outputs:** From this code we get the updated vector payoff alpha_vector which is a row vector. It provides the vector payoff over player 2's state for all possible action set (at,bt) of the current stage t. If the current action of player 1 and 2 is 'a' and 'b' then we can get the updated mu using the following two line of code.
 
-col_index_alpha=(a-1)*B*l+(b-1)*l
+col_index_alpha=(a-1)* B* l+(b-1)* l
 
 nu=alpha_vector(1,col_index_alpha+1:col_index_alpha+l);
 
-#### 5.2 The LP code of player 2 (provided in ??????????????)
+#### 5.2 The LP code of player 2 (provided in [fn_dual_game_2nd_P2](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/ad98cf1406b1d8756714a8e42e933cb0e46423f3/finite%20long%20horizon/window_by_window_method/unitilities/fn_dual_game_2nd_P2.m))
 
-**Inputs:** ?????????????? detailed explanation of the inputs if other than something introduced in section 2
+**Inputs:** The LP of player 2 can be solved by using the function **[beta_vector] = fn_dual_game_2nd_P2(T,A,B,k,l,lm,G,P,Q,q,mu,Y_star)**. Here, T is the total number of stages in the game, A and B are the number of actions of player 1 and 2, respectively. k is the number of private state of player 1 and l is the number of private state of player 2. lm is to create discounted game. The value of lm should be between 0 to 1. If lm<1 and the number of stages of the game is finite then it creates truncated discounted game. If lm<1 and the number of stages of the game is infinite then it creates discounted game. P is the transition matrices of player 1. The matrix form of P is **P_{at, bt}(k,k')**. It provides a probability matrix of player 1's state to jump from one state (k) to another state (k') when the current action of player 1 is at and player 2 is bt. Q is the transition matrices of player 2. The matrix form of Q is **Q_{at, bt}(l,l')**. It provides a probability matrix of player 2's state to jump from one state (l) to another state (l') when the current action of player 1 is at and player 2 is bt. q is a row vector which the independent initial probability of player 2's initial state. For example, q=[q1 q2 q3] where q1 is the probability of player 2's initial state to be 1. G is the payoff matrix and its matrix form is G_{kt,lt}(at, bt). mu is the initial vector payoff over player 1's state which provides the probability distribution over player 1's private state k. We get the value of mu from primal game LP of player 2. Y_star is the optimal strategy of player 2 at stage 1 which we can get using primal or dual game LP of player 2. 
 
-**Outputs:** ???????????????? detailed explanation of outputs and how to use them. 
+**Outputs:** From this code we get the updated vector payoff beta_vector which is a row vector. It provides the vector payoff over player 1's state for all possible action set (at,bt) of the current stage t. If the current action of player 1 and 2 is 'a' and 'b' then we can get the updated mu using the following two line of code.
+
+col_index_beta=(a-1)* B* k+(b-1)* k;
+mu=beta_vector(1,col_index_beta+1:col_index_beta+k);
 
 ### 6. How to use these codes
 
-If your application has short horizon (2-3 stages), the action based strategy introduced in Section 3 is suitable. The detailed usage is provided in folder ??????
+If your application has short horizon (2-3 stages), the action based strategy introduced in Section 3 is suitable. The detailed usage is provided in folder [action based strategy for short horizon cases](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/tree/main/action%20based%20strategy%20for%20short%20horizon%20cases)
 
-If your application has long horizon (>3 stages), the sufficient statistic based strategy is more suitable. The detailed algorithm based on the LPs introduced above is given in folder ???? and ?????
-
+If your application has long horizon (>3 stages), the sufficient statistic based strategy is more suitable. The detailed algorithm based on the LPs introduced above is given in folder [finite long horizon](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/tree/main/finite%20long%20horizon) and [infinite horizon](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/tree/main/infinite%20horizon)
 
 
 ## References
