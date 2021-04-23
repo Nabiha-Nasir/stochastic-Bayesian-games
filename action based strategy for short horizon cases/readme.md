@@ -16,7 +16,7 @@ In this step, you need to tell the code the basic information about the game. Th
 - **G**: Payoff Matrix, Format of G in the matlab code: If the actions (kt,lt)=(1,1) then G{1,1}= [108.89,113.78;108.89,113.78]
 - **lm**: To create discounted game (0< lm <=1)
 
-![image](https://user-images.githubusercontent.com/62413691/115548983-19587400-a276-11eb-98c5-3263fa29b59d.png)
+![image](https://user-images.githubusercontent.com/62413691/115858717-4be0a900-a3fd-11eb-95b0-c24b3321a0b0.png)
 
 
 #### step 2: Compute the optimal strategy
