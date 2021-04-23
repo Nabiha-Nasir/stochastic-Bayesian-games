@@ -56,4 +56,4 @@ In stage t, you need to first update your history observation which is organized
 Stop if arrive at the terminal stage.
 
 ### About the files of this folder
-The code [primal_game_test] (https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/8f65d113b6a2f395c5b4bc12a12c41f04092d3bb/action%20based%20strategy%20for%20short%20horizon%20cases/primal_game_test.m) is an example of a 2 stage game where player 1 and 2 compute their optimal strategy using primal game LP and take action accordingly. The 'utilities' folder contains all the required function and files to run this code.
+The code primal_game_test.m is an example of a 2 stage game where player 1 and 2 compute their optimal strategy using primal game LP and take action accordingly. The 'utilities' folder contains all the required function and files to run this code.
