@@ -49,14 +49,30 @@ The primal game LP of player 1 can be solved by using the function **[sigma,nu] 
 **Outputs:**
 - **sigma**: The optimal strategy of player 1 which is a probability distribution over player 1's actions to play optimally. The action can be chosen by the function [choose_action]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/eea7a9e0a24a1acc7d0f17bb9aeb07595dea4ff8/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/choose_action.m), [a] = choose_action(sigma,A,
 [[col_index_sigma] = sigma_col_index_new(A,B,k,k_present,Ha,t,T)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/ab0538a8d4ff0bc1c9db4dbb0af1ccddbb09de19/finite%20long%20horizon/unitilities/sigma_col_index_new.m) at stage t when its current state is k_present, the available information set is Ha (k1,a1,b1,k2,a2,b2,k3,...kt).
-**nu**: The initial vector payoff over player 2's state in the dual game. It is one of the sufficient statistics elements of player 1 in dual game. We will use this term in dual game LP. 
+- **nu**: The initial vector payoff over player 2's state in the dual game. It is one of the sufficient statistics elements of player 1 in dual game. 
 
 #### 3.2 The LP code of player 2 (provided in [fn_primal_game_p2](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/fd1de8441f69b0b8faa7cba65ce23180b5cdabd0/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/fn_primal_game_p2.m))
 
-**Inputs:** The primal game LP of player 1 can be solved by using the function **[tau,mu] = fn_primal_game_p2(T,A,B,k,l,lm,P,Q,p,q,G)**. Here, T is the total number of stages in the game, A and B are the number of actions of player 1 and 2, respectively. k is the number of private state of player 1 and l is the number of private state of player 2. lm is to create discounted game. The value of lm should be between 0 to 1. If lm<1 and the number of stages of the game is finite then it creates truncated discounted game. If lm<1 and the number of stages of the game is infinite then it creates discounted game. P is the transition matrices of player 1. The matrix form of P is **P_{at, bt}(k,k')**. It provides a probability matrix of player 1's state to jump from one state (k) to another state (k') when the current action of player 1 is at and player 2 is bt. Q is the transition matrices of player 2. The matrix form of Q is **Q_{at, bt}(l,l')**. It provides a probability matrix of player 2's state to jump from one state (l) to another state (l') when the current action of player 1 is at and player 2 is bt. p is a row vector which the independent initial probability of player 1's initial state. For example, p=[p1 p2 p3] where p1 is the probability of player 1's initial state to be 1. Similaryly, q is a row vector which the independent initial probability of player 2's initial state. For example, q=[q1 q2 q3] where q1 is the probability of player 2's initial state to be 1. G is the payoff matrix and its matrix form is G_{kt,lt}(at, bt).
+The primal game LP of player 1 can be solved by using the function **[tau,mu] = fn_primal_game_p2(T,A,B,k,l,lm,P,Q,p,q,G)**.
 
-**Outputs:** From the LP code of player 2's primal game we get two outputs **tau** and **mu**. tau is the optimal strategy of player 2 and provides a probability distribution over player 2's actions to play optimally. Sometimes, tau contains NaN or Inf elements. It means that the possibility of the corresponding history is 0. The function [choose_action]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/eea7a9e0a24a1acc7d0f17bb9aeb07595dea4ff8/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/choose_action.m), [b] = choose_action(rau,B,tau_col_index_new(A,B,l,l_present,Hb,t,n_is2)) is used to get the optimal action of player 2 at stage t when its current state is l_present, the available information set is Hb, total number of possible information sets of player 1 at all the stages n_is2.
-mu is the initial vector payoff over player 1's state in dual game. It is one of the sufficient statistics elements of player 2 in dual game. We will use this term in dual game LP. 
+**Inputs:** 
+- **T**: Total number of stages in the game
+- **A**: The number of actions of player 1
+- **B**: The number of actions of player 2
+- **k**: The number of private state of player 1
+- **l**: The number of private state of player 2
+- **P**: Transition matrix of player 1. Format of P in the matlab code: If the actions (a,b)=(1,2) then P{1,2}=[.4 .5 .1; .2 .3 .5; .4 .4 .2 ]. In this example, when a=1 and b=2 the probability of player 1's state jump from k=2 to k=2 is 0.3. Notice that the state is jumping from row element to column element. Every element of P should be non-negative and every row sums to 1.
+- **Q**: Transition matrix of player 2. Format of Q in the matlab code: If the actions (a,b)=(1,1) then Q{1,1}=[.8 .2;.5 .5]. In this example, when a=1 and b=2 the probability of player 1's state jump from k=1 to k=2 is 0.5. Notice that the state is jumping from row element to column element. Every element of Q should be non-negative and every row sums to 1.
+- **p**: Initial probability of player 1's initial state. Matlab code format: p=[0.5 0.3 0.2]=[Pr(k=1) Pr(k=2) Pr(k=3)]
+- **q**: Initial probability of player 2's initial state. Matlab code format: p=[0.5 0.5]=[Pr(l=1) Pr(l=2)]
+- **G**: Payoff Matrix, Format of G in the matlab code: If the actions (a,b)=(1,1) then G{1,1}= [108.89,113.78;108.89,113.78]
+- **lm**: To create discounted game (0< lm<1)
+
+**Outputs:**
+
+- **tau**: The optimal strategy of player 2 which is a probability distribution over player 2's actions to play optimally. The action can be chosen by the function [choose_action]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/eea7a9e0a24a1acc7d0f17bb9aeb07595dea4ff8/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/choose_action.m), [b] = choose_action(tau,B,
+[[col_index_sigma] = sigma_col_index_new(A,B,l,l_present,Hb,t,T)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/3d7bdfe1b085e48f9b9400424a3328a0794a8d8f/finite%20long%20horizon/unitilities/tau_col_index_new.m) at stage t when its current state is l_present, the available information set is Hb (l1,a1,b1,l2,a2,b2,l3,...lt).
+- **mu**: The initial vector payoff over player 1's state in the dual game. It is one of the sufficient statistics elements of player 2 in dual game.
 
 ### 4. Dual games and its LPs in finite horizon (actoin based strategy). 
 The size of the LPs of the primal game increases exponentially with respect to the horizon of the game. Therefore, the action based strategy doesn't work well in long horizon. During the process of developing sufficient statistic based strategy, we find that the sufficient statistic in the primal game is not fully accessible to either players (explained in the original paper [[1]](#1)). To develop sufficient statistic based strategy, dual games are introduced.
@@ -81,9 +97,26 @@ LP for player 2:
  
 #### 4.1 The LP code of player 1 (provided in [fn_full_dual_game_value_P1](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/605e524a0c44aa5ab87a4778dce40b2bac8992ce/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/fn_full_dual_game_value_P1.m))
 
-**Inputs:** The dual game LP of player 1 can be solved by using the function **[sigma] = fn_full_dual_game_value_P1(T,A,B,k,l,lm,G,P,Q,p,nu)** Here, T is the total number of stages in the game, A and B are the number of actions of player 1 and 2, respectively. k is the number of private state of player 1 and l is the number of private state of player 2. lm is to create discounted game. The value of lm should be between 0 to 1. If lm<1 and the number of stages of the game is finite then it creates truncated discounted game. If lm<1 and the number of stages of the game is infinite then it creates discounted game. P is the transition matrices of player 1. The matrix form of P is **P_{at, bt}(k,k')**. It provides a probability matrix of player 1's state to jump from one state (k) to another state (k') when the current action of player 1 is at and player 2 is bt. Q is the transition matrices of player 2. The matrix form of Q is **Q_{at, bt}(l,l')**. It provides a probability matrix of player 2's state to jump from one state (l) to another state (l') when the current action of player 1 is at and player 2 is bt. p is a row vector which the independent initial probability of player 1's initial state. For example, p=[p1 p2 p3] where p1 is the probability of player 1's initial state to be 1. G is the payoff matrix and its matrix form is G_{kt,lt}(at, bt). nu is the initial vector payoff over player 2's state which provides the probability distribution over player 2's private state l. We get the value of nu from primal game LP of player 1.
+The dual game LP of player 1 can be solved by using the function **[sigma] = fn_full_dual_game_value_P1(T,A,B,k,l,lm,G,P,Q,p,nu)**
 
-**Outputs:** From the LP code of player 1's primal game we get **sigma** which is the optimal strategy of player 1 and provides a probability distribution over player 1's actions to play optimally. Sometimes, sigma contains NaN or Inf elements. It means that the possibility of the corresponding history is 0. The function [choose_action]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/eea7a9e0a24a1acc7d0f17bb9aeb07595dea4ff8/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/choose_action.m), [a] = choose_action(sigma,A,sigma_col_index_new(A,B,k,k_present,Ha,t,n_is1)) is used to get the optimal action of player 1 at stage t when its current state is k_present, the available information set is Ha, total number of possible information sets of player 1 at all the stages n_is1.
+**Inputs:**
+
+- **T**: Total number of stages in the game
+- **A**: The number of actions of player 1
+- **B**: The number of actions of player 2
+- **k**: The number of private state of player 1
+- **l**: The number of private state of player 2
+- **P**: Transition matrix of player 1. Format of P in the matlab code: If the actions (a,b)=(1,2) then P{1,2}=[.4 .5 .1; .2 .3 .5; .4 .4 .2 ]. In this example, when a=1 and b=2 the probability of player 1's state jump from k=2 to k=2 is 0.3. Notice that the state is jumping from row element to column element. Every element of P should be non-negative and every row sums to 1.
+- **Q**: Transition matrix of player 2. Format of Q in the matlab code: If the actions (a,b)=(1,1) then Q{1,1}=[.8 .2;.5 .5]. In this example, when a=1 and b=2 the probability of player 1's state jump from k=1 to k=2 is 0.5. Notice that the state is jumping from row element to column element. Every element of Q should be non-negative and every row sums to 1.
+- **p**: Initial probability of player 1's initial state. Matlab code format: p=[0.5 0.3 0.2]=[Pr(k=1) Pr(k=2) Pr(k=3)]
+- **G**: Payoff Matrix, Format of G in the matlab code: If the actions (a,b)=(1,1) then G{1,1}= [108.89,113.78;108.89,113.78]
+- **lm**: To create discounted game (0< lm<1)
+- **nu**: The initial vector payoff over player 1's state in the dual game. It is one of the sufficient statistics elements of player 2 in dual game. We get this value from primal game of player 1 ( [fn_primal_game_p1](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/fd1de8441f69b0b8faa7cba65ce23180b5cdabd0/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/fn_primal_game_p1.m) ).
+
+**Outputs:**
+
+-**sigma**: The optimal strategy of player 1 which is a probability distribution over player 1's actions to play optimally. The action can be chosen by the function [choose_action]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/eea7a9e0a24a1acc7d0f17bb9aeb07595dea4ff8/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/choose_action.m), [a] = choose_action(sigma,A,
+[[col_index_sigma] = sigma_col_index_new(A,B,k,k_present,Ha,t,T)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/ab0538a8d4ff0bc1c9db4dbb0af1ccddbb09de19/finite%20long%20horizon/unitilities/sigma_col_index_new.m) at stage t when its current state is k_present, the available information set is Ha (k1,a1,b1,k2,a2,b2,k3,...kt).
 
 #### 4.2 The LP code of player 2 (provided in [fn_full_dual_game_value_P2](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/d10e8d507c89a966a631f0a65fae6ab4871b140f/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/fn_full_dual_game_value_P2.m))
 
