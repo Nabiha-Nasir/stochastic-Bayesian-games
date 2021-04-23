@@ -20,6 +20,10 @@ In this step, you need to tell the code the basic information about the game. Th
 
 ![image](https://user-images.githubusercontent.com/62413691/115858717-4be0a900-a3fd-11eb-95b0-c24b3321a0b0.png)
 
-#### step 1: Run Game
+#### step 2: Compute the initial vector payoff
+
+Call the function [fn_primal_game_p1](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/45e1fb93b86dba49be6d0c8de39f6528e309c4e7/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/fn_primal_game_p1.m) for player 1 and [fn_primal_game_p2](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/45e1fb93b86dba49be6d0c8de39f6528e309c4e7/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/fn_primal_game_p2.m) for player 2 to get the inital vector payoff **nu** and **mu** for the window size.
+
+#### step 3: Run Game
 
 ![image](https://user-images.githubusercontent.com/62413691/115869981-9fa6be80-a40c-11eb-8b75-446080e6859f.png)
