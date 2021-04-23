@@ -73,7 +73,7 @@ The primal game LP of player 1 can be solved by using the function **[tau,mu,v2]
 **Outputs:**
 
 - **tau**: The optimal strategy of player 2 which is a probability distribution over player 2's actions to play optimally. The action can be chosen by the function [choose_action]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/eea7a9e0a24a1acc7d0f17bb9aeb07595dea4ff8/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/choose_action.m), [b] = choose_action(tau,B,
-[[col_index_sigma] = sigma_col_index_new(A,B,l,l_present,Hb,t,T)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/3d7bdfe1b085e48f9b9400424a3328a0794a8d8f/finite%20long%20horizon/unitilities/tau_col_index_new.m) at stage t when its current state is l_present, the available information set is Hb=[l1,a1,b1,l2,a2,b2,l3,...lt].
+[[col_index_tau] = tau_col_index_new(A,B,l,l_present,Hb,t,T)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/68faf04f2c67924d49ab5549814d596674d202d7/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/tau_col_index_new.m) at stage t when its current state is l_present, the available information set is Hb=[l1,a1,b1,l2,a2,b2,l3,...lt].
 - **mu**: The initial vector payoff over player 1's state in the dual game. It is one of the sufficient statistics elements of player 2 in dual game.
 - **v2**: Game value
 
@@ -142,7 +142,7 @@ The dual game LP of player 2 can be solved by using the function **[tau] = fn_fu
 **Outputs:**
 
 **tau**: The optimal strategy of player 2 which is a probability distribution over player 2's actions to play optimally. The action can be chosen by the function [choose_action]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/eea7a9e0a24a1acc7d0f17bb9aeb07595dea4ff8/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/choose_action.m), [b] = choose_action(tau,B,
-[[col_index_sigma] = sigma_col_index_new(A,B,l,l_present,Hb,t,T)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/3d7bdfe1b085e48f9b9400424a3328a0794a8d8f/finite%20long%20horizon/unitilities/tau_col_index_new.m) at stage t when its current state is l_present, the available information set is Hb=[l1,a1,b1,l2,a2,b2,l3,...lt]
+[[col_index_tau] = tau_col_index_new(A,B,l,l_present,Hb,t,T)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/68faf04f2c67924d49ab5549814d596674d202d7/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/tau_col_index_new.m) at stage t when its current state is l_present, the available information set is Hb=[l1,a1,b1,l2,a2,b2,l3,...lt]
 
 ### 5. Dual games and the sufficient statistic update
 
