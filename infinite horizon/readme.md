@@ -1,7 +1,7 @@
 ### Receding horizon algorithm
 Assume there is a game which runs for infinite number of stages and the computational capacity only allow us to compute security strategies in games with T<N stages in a timely manner. For this situation we have introduced receding horizon algorithm where players compute the optimal strategies for first n stages and take action for the first stage. Then move the n sized window 1 stage ahead, compute the optimal strategies and take action for the first stage of that window which is actually the 2nd stage in the game horizon. The performance of this algorithm is better than window by window method as at each stage it is computing the sufficient statistic based optimal strategy and take action accordingly. 
 
-#### step 1: Initialization
+#### Step 1: Initialization
 In this step, you need to tell the code the basic information about the game. The basic informations of this code are:
 
 - **T**: Window size
@@ -19,7 +19,7 @@ In this step, you need to tell the code the basic information about the game. Th
 
 ![image](https://user-images.githubusercontent.com/62413691/115906826-0e4c4200-a436-11eb-9033-935d2413d723.png)
 
-#### step 3: Run Game
+#### Step 3: Run Game
 
 ![image](https://user-images.githubusercontent.com/62413691/115909649-cb8c6900-a439-11eb-8994-50ea50eb9e74.png)
 
