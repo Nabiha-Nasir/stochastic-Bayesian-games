@@ -6,7 +6,8 @@ To solve this problem, we propose a window-by-window dual game based strategy as
 #### step 1: Initialization
 In this step, you need to tell the code the basic information about the game. The basic informations of this code are:
 
-- **T**: Total number of stages in the game
+- **T**: Window size
+- **N**: Game horizon
 - **A**: The number of actions of player 1
 - **B**: The number of actions of player 2
 - **k**: The number of private state of player 1
@@ -18,7 +19,7 @@ In this step, you need to tell the code the basic information about the game. Th
 - **G**: Payoff Matrix, Format of G in the matlab code: If the actions (kt,lt)=(1,1) then G{1,1}= [108.89,113.78;108.89,113.78]
 - **lm**: To create discounted game (0< lm <=1)
 
-![image](https://user-images.githubusercontent.com/62413691/115858717-4be0a900-a3fd-11eb-95b0-c24b3321a0b0.png)
+![image](https://user-images.githubusercontent.com/62413691/115906826-0e4c4200-a436-11eb-9033-935d2413d723.png)
 
 #### step 2: Compute the initial vector payoff
 
