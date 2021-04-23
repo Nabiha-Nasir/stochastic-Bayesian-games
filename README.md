@@ -43,7 +43,7 @@ The primal game LP of player 1 can be solved by using the function **[sigma,nu] 
 - **Q**: Transition matrix of player 2. Format of Q in the matlab code: If l=2, P(at,bt}=[Pr(lt=1,l(t+1)=1) Pr(lt=1,l(t+1)=2); Pr(lt=2,l(t+1)=1) Pr(lt=2,l(t+1)=2)]. For example, when l=3 and the actions (a,b)=(1,1) then Q{1,1}=[.8 .2;.5 .5]. In this example, when a=1 and b=2 the probability of player 1's state jump from l=1 to l=2 is 0.5. Notice that the state is jumping from row element to column element. Every element of Q should be non-negative and every row sums to 1.
 - **p**: Initial probability of player 1's initial state. Matlab code format: p=[0.5 0.3 0.2]=[Pr(k=1) Pr(k=2) Pr(k=3)]
 - **q**: Initial probability of player 2's initial state. Matlab code format: p=[0.5 0.5]=[Pr(l=1) Pr(l=2)]
-- **G**: Payoff Matrix, Format of G in the matlab code: If the actions (a,b)=(1,1) then G{1,1}= [108.89,113.78;108.89,113.78]
+- **G**: Payoff Matrix, Format of G in the matlab code: If the actions (kt,lt)=(1,1) then G{1,1}= [108.89,113.78;108.89,113.78]
 - **lm**: To create discounted game (0< lm <=1)
 
 **Outputs:**
@@ -65,7 +65,7 @@ The primal game LP of player 1 can be solved by using the function **[tau,mu] = 
 - **Q**: Transition matrix of player 2. Format of Q in the matlab code: If l=2, P(at,bt}=[Pr(lt=1,l(t+1)=1) Pr(lt=1,l(t+1)=2); Pr(lt=2,l(t+1)=1) Pr(lt=2,l(t+1)=2)]. For example, when l=3 and the actions (a,b)=(1,1) then Q{1,1}=[.8 .2;.5 .5]. In this example, when a=1 and b=2 the probability of player 1's state jump from l=1 to l=2 is 0.5. Notice that the state is jumping from row element to column element. Every element of Q should be non-negative and every row sums to 1.
 - **p**: Initial probability of player 1's initial state. Matlab code format: p=[0.5 0.3 0.2]=[Pr(k=1) Pr(k=2) Pr(k=3)]
 - **q**: Initial probability of player 2's initial state. Matlab code format: p=[0.5 0.5]=[Pr(l=1) Pr(l=2)]
-- **G**: Payoff Matrix, Format of G in the matlab code: If the actions (a,b)=(1,1) then G{1,1}= [108.89,113.78;108.89,113.78]
+- **G**: Payoff Matrix, Format of G in the matlab code: If the actions (kt,lt)=(1,1) then G{1,1}= [108.89,113.78;108.89,113.78]
 - **lm**: To create discounted game (0< lm<1)
 
 **Outputs:**
@@ -109,9 +109,9 @@ The dual game LP of player 1 can be solved by using the function **[sigma] = fn_
 - **P**: Transition matrix of player 1. Format of P in the matlab code: If k=2, P(at,bt}=[Pr(kt=1,k(t+1)=1) Pr(kt=1,k(t+1)=2); Pr(kt=2,k(t+1)=1) Pr(kt=2,k(t+1)=2)]. For example, when k=3 and the actions (a,b)=(1,2) then P{1,2}=[.4 .5 .1; .2 .3 .5; .4 .4 .2 ]. Here, when a=1 and b=2 the probability of player 1's state jump from k=2 to k=2 is 0.3. Notice that the state is jumping from row element to column element. Every element of P should be non-negative and every row sums to 1.
 - **Q**: Transition matrix of player 2. Format of Q in the matlab code: If l=2, P(at,bt}=[Pr(lt=1,l(t+1)=1) Pr(lt=1,l(t+1)=2); Pr(lt=2,l(t+1)=1) Pr(lt=2,l(t+1)=2)]. For example, when l=3 and the actions (a,b)=(1,1) then Q{1,1}=[.8 .2;.5 .5]. In this example, when a=1 and b=2 the probability of player 1's state jump from l=1 to l=2 is 0.5. Notice that the state is jumping from row element to column element. Every element of Q should be non-negative and every row sums to 1.
 - **p**: Initial probability of player 1's initial state. Matlab code format: p=[0.5 0.3 0.2]=[Pr(k=1) Pr(k=2) Pr(k=3)]
-- **G**: Payoff Matrix, Format of G in the matlab code: If the actions (a,b)=(1,1) then G{1,1}= [108.89,113.78;108.89,113.78]
+- **G**: Payoff Matrix, Format of G in the matlab code: If the actions (kt,lt)=(1,1) then G{1,1}= [108.89,113.78;108.89,113.78]
 - **lm**: To create discounted game (0< lm<1)
-- **nu**: The initial vector payoff over player 1's state in the dual game. It is one of the sufficient statistics elements of player 2 in dual game. We get this value from primal game of player 1 ( [fn_primal_game_p1](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/fd1de8441f69b0b8faa7cba65ce23180b5cdabd0/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/fn_primal_game_p1.m) ).
+- **nu**: The initial vector payoff over player 2's state in the dual game. It is one of the sufficient statistics elements of player 1 in dual game. We get this value from primal game of player 1 ( [fn_primal_game_p1](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/fd1de8441f69b0b8faa7cba65ce23180b5cdabd0/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/fn_primal_game_p1.m) ).
 
 **Outputs:**
 
@@ -120,7 +120,21 @@ The dual game LP of player 1 can be solved by using the function **[sigma] = fn_
 
 #### 4.2 The LP code of player 2 (provided in [fn_full_dual_game_value_P2](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/d10e8d507c89a966a631f0a65fae6ab4871b140f/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/fn_full_dual_game_value_P2.m))
 
-**Inputs:** The dual game LP of player 2 can be solved by using the function **[tau] = fn_full_dual_game_value_P2(T,A,B,k,l,lm,G,P,Q,q,mu)**. Here, T is the total number of stages in the game, A and B are the number of actions of player 1 and 2, respectively. k is the number of private state of player 1 and l is the number of private state of player 2. lm is to create discounted game. The value of lm should be between 0 to 1. If lm<1 and the number of stages of the game is finite then it creates truncated discounted game. If lm<1 and the number of stages of the game is infinite then it creates discounted game. P is the transition matrices of player 1. The matrix form of P is **P_{at, bt}(k,k')**. It provides a probability matrix of player 1's state to jump from one state (k) to another state (k') when the current action of player 1 is at and player 2 is bt. Q is the transition matrices of player 2. The matrix form of Q is **Q_{at, bt}(l,l')**. It provides a probability matrix of player 2's state to jump from one state (l) to another state (l') when the current action of player 1 is at and player 2 is bt. p is a row vector which the indipendent initial probability of player 1's initial state. q is a row vector which is the independent initial probability of player 2's initial state. For example, q=[q1 q2 q3] where q1 is the probability of player 2's initial state to be 1. G is the payoff matrix and its matrix form is G_{kt,lt}(at, bt). mu is the initial vector payoff over player 1's state which provides the probability distribution over player 1's private state k. We get the value of mu from primal game LP of player 2.
+The dual game LP of player 2 can be solved by using the function **[tau] = fn_full_dual_game_value_P2(T,A,B,k,l,lm,G,P,Q,q,mu)**.
+
+**Inputs:** 
+
+- **T**: Total number of stages in the game
+- **A**: The number of actions of player 1
+- **B**: The number of actions of player 2
+- **k**: The number of private state of player 1
+- **l**: The number of private state of player 2
+- **P**: Transition matrix of player 1. Format of P in the matlab code: If k=2, P(at,bt}=[Pr(kt=1,k(t+1)=1) Pr(kt=1,k(t+1)=2); Pr(kt=2,k(t+1)=1) Pr(kt=2,k(t+1)=2)]. For example, when k=3 and the actions (a,b)=(1,2) then P{1,2}=[.4 .5 .1; .2 .3 .5; .4 .4 .2 ]. Here, when a=1 and b=2 the probability of player 1's state jump from k=2 to k=2 is 0.3. Notice that the state is jumping from row element to column element. Every element of P should be non-negative and every row sums to 1.
+- **Q**: Transition matrix of player 2. Format of Q in the matlab code: If l=2, P(at,bt}=[Pr(lt=1,l(t+1)=1) Pr(lt=1,l(t+1)=2); Pr(lt=2,l(t+1)=1) Pr(lt=2,l(t+1)=2)]. For example, when l=3 and the actions (a,b)=(1,1) then Q{1,1}=[.8 .2;.5 .5]. In this example, when a=1 and b=2 the probability of player 1's state jump from l=1 to l=2 is 0.5. Notice that the state is jumping from row element to column element. Every element of Q should be non-negative and every row sums to 1.
+- **q**: Initial probability of player 2's initial state. Matlab code format: p=[0.5 0.5]=[Pr(l=1) Pr(l=2)]
+- **G**: Payoff Matrix, Format of G in the matlab code: If the actions (kt,lt)=(1,1) then G{1,1}= [108.89,113.78;108.89,113.78]
+- **lm**: To create discounted game (0< lm<1)
+- **mu**: The initial vector payoff over player 1's state in the dual game. It is one of the sufficient statistics elements of player 2 in dual game. We get this value from primal game of player 2 ( [fn_primal_game_p2](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/fd1de8441f69b0b8faa7cba65ce23180b5cdabd0/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/fn_primal_game_p2.m) ).
 
 **Outputs:** From the LP code of player 2's dual game we get **tau** which is the optimal strategy of player 2 and provides a probability distribution over player 2's actions to play optimally. Sometimes, tau contains NaN or Inf elements. It means that the possibility of the corresponding history is 0. The function [choose_action]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/eea7a9e0a24a1acc7d0f17bb9aeb07595dea4ff8/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/choose_action.m), [b] = choose_action(rau,B,tau_col_index_new(A,B,l,l_present,Hb,t,n_is2)) is used to get the optimal action of player 2 at stage t when its current state is l_present, the available information set is Hb, total number of possible information sets of player 1 at all the stages n_is2.
 
