@@ -177,6 +177,7 @@ The LP of player 1 can be solved by using the function **[alpha_vector] = fn_dua
 **alpha_vector**: The updated vector payoff over player 2's state for all possible action set (at,bt) of the current stage t. For example, if player 2 has 2 states and 2 actions and player 1 has 2 actions then alpha_vector=[ (alpha1 alpha2) (alpha3 alpha4) (alpha5 alpha6) (alpha7 alpha8)] where (alpha3 alpha4) is the vector payoff over player 2's state (l=1,l=2) when player 1's action is 1 and player 2's action is 2. If the current action of player 1 and 2 is 'a' and 'b' then we can get the updated nu using the following two line of code.
 
 col_index_alpha=(a-1)* B* l+(b-1)* l
+
 nu_plus=alpha_vector(1,col_index_alpha+1:col_index_alpha+l)
 
 The size of nu_plus should be same as the initial probability of player 2's state q.
@@ -205,6 +206,7 @@ The LP of player 2 can be solved by using the function **[beta_vector] = fn_dual
 **beta_vector**: The updated vector payoff over player 1's state for all possible action set (at,bt) of the current stage t. For example, if player 1 has 3 states and 2 actions and player 2 has 2 actions beta_vector=[ (beta1 beta2 beta3) (beta4 beta5 beta6) (beta7 beta8 beta9) (beta10 beta11 beta12)] where (beta4 beta5 beta6) is the vector payoff over player 1's state (k=1,k=2, k=3) when player 1's action is 1 and player 2's action is 2. If the current action of player 1 and 2 is 'a' and 'b' then we can get the updated mu using the following two line of code.
 
 col_index_beta=(a-1)* B* k+(b-1)* k
+
 mu_plus=beta_vector(1,col_index_beta+1:col_index_beta+k)
 
 The size of mu_plus should be same as the initial probability of player 1's state p.
