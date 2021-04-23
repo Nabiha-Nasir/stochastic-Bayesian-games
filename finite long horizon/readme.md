@@ -20,6 +20,6 @@ In this step, you need to tell the code the basic information about the game. Th
 
 ![image](https://user-images.githubusercontent.com/62413691/115858717-4be0a900-a3fd-11eb-95b0-c24b3321a0b0.png)
 
-#### step 1: Preparation
+#### step 1: Run Game
 
-![image](https://user-images.githubusercontent.com/62413691/115869830-71c17a00-a40c-11eb-84ac-f0e3cf4c92fa.png)
+![image](https://user-images.githubusercontent.com/62413691/115869981-9fa6be80-a40c-11eb-8b75-446080e6859f.png)
