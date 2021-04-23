@@ -34,6 +34,7 @@ LP for player 2:
 The primal game LP of player 1 can be solved by using the function **[sigma,nu] = fn_primal_game_p1(T,A,B,k,l,lm,P,Q,p,q,G)**. 
 
 **Inputs:** 
+
 - **T**: Total number of stages in the game
 - **A**: The number of actions of player 1
 - **B**: The number of actions of player 2
@@ -48,7 +49,7 @@ The primal game LP of player 1 can be solved by using the function **[sigma,nu] 
 
 **Outputs:**
 - **sigma**: The optimal strategy of player 1 which is a probability distribution over player 1's actions to play optimally. The action can be chosen by the function [choose_action]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/eea7a9e0a24a1acc7d0f17bb9aeb07595dea4ff8/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/choose_action.m), [a] = choose_action(sigma,A,
-[[col_index_sigma] = sigma_col_index_new(A,B,k,k_present,Ha,t,T)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/ab0538a8d4ff0bc1c9db4dbb0af1ccddbb09de19/finite%20long%20horizon/unitilities/sigma_col_index_new.m) at stage t when its current state is k_present, the available information set is Ha (k1,a1,b1,k2,a2,b2,k3,...kt).
+[[col_index_sigma] = sigma_col_index_new(A,B,k,k_present,Ha,t,T)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/ab0538a8d4ff0bc1c9db4dbb0af1ccddbb09de19/finite%20long%20horizon/unitilities/sigma_col_index_new.m) at stage t when its current state is k_present, the available information set is Ha=[k1,a1,b1,k2,a2,b2,k3,...kt].
 - **nu**: The initial vector payoff over player 2's state in the dual game. It is one of the sufficient statistics elements of player 1 in dual game. 
 
 #### 3.2 The LP code of player 2 (provided in [fn_primal_game_p2](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/fd1de8441f69b0b8faa7cba65ce23180b5cdabd0/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/fn_primal_game_p2.m))
@@ -71,7 +72,7 @@ The primal game LP of player 1 can be solved by using the function **[tau,mu] = 
 **Outputs:**
 
 - **tau**: The optimal strategy of player 2 which is a probability distribution over player 2's actions to play optimally. The action can be chosen by the function [choose_action]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/eea7a9e0a24a1acc7d0f17bb9aeb07595dea4ff8/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/choose_action.m), [b] = choose_action(tau,B,
-[[col_index_sigma] = sigma_col_index_new(A,B,l,l_present,Hb,t,T)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/3d7bdfe1b085e48f9b9400424a3328a0794a8d8f/finite%20long%20horizon/unitilities/tau_col_index_new.m) at stage t when its current state is l_present, the available information set is Hb (l1,a1,b1,l2,a2,b2,l3,...lt).
+[[col_index_sigma] = sigma_col_index_new(A,B,l,l_present,Hb,t,T)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/3d7bdfe1b085e48f9b9400424a3328a0794a8d8f/finite%20long%20horizon/unitilities/tau_col_index_new.m) at stage t when its current state is l_present, the available information set is Hb=[l1,a1,b1,l2,a2,b2,l3,...lt].
 - **mu**: The initial vector payoff over player 1's state in the dual game. It is one of the sufficient statistics elements of player 2 in dual game.
 
 ### 4. Dual games and its LPs in finite horizon (actoin based strategy). 
@@ -116,7 +117,7 @@ The dual game LP of player 1 can be solved by using the function **[sigma] = fn_
 **Outputs:**
 
 **sigma**: The optimal strategy of player 1 which is a probability distribution over player 1's actions to play optimally. The action can be chosen by the function [choose_action]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/eea7a9e0a24a1acc7d0f17bb9aeb07595dea4ff8/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/choose_action.m), [a] = choose_action(sigma,A,
-[[col_index_sigma] = sigma_col_index_new(A,B,k,k_present,Ha,t,T)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/ab0538a8d4ff0bc1c9db4dbb0af1ccddbb09de19/finite%20long%20horizon/unitilities/sigma_col_index_new.m) at stage t when its current state is k_present, the available information set is Ha (k1,a1,b1,k2,a2,b2,k3,...kt).
+[[col_index_sigma] = sigma_col_index_new(A,B,k,k_present,Ha,t,T)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/ab0538a8d4ff0bc1c9db4dbb0af1ccddbb09de19/finite%20long%20horizon/unitilities/sigma_col_index_new.m) at stage t when its current state is k_present, the available information set is Ha=[k1,a1,b1,k2,a2,b2,k3,...kt]
 
 #### 4.2 The LP code of player 2 (provided in [fn_full_dual_game_value_P2](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/d10e8d507c89a966a631f0a65fae6ab4871b140f/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/fn_full_dual_game_value_P2.m))
 
@@ -139,7 +140,7 @@ The dual game LP of player 2 can be solved by using the function **[tau] = fn_fu
 **Outputs:**
 
 **tau**: The optimal strategy of player 2 which is a probability distribution over player 2's actions to play optimally. The action can be chosen by the function [choose_action]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/eea7a9e0a24a1acc7d0f17bb9aeb07595dea4ff8/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/choose_action.m), [b] = choose_action(tau,B,
-[[col_index_sigma] = sigma_col_index_new(A,B,l,l_present,Hb,t,T)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/3d7bdfe1b085e48f9b9400424a3328a0794a8d8f/finite%20long%20horizon/unitilities/tau_col_index_new.m) at stage t when its current state is l_present, the available information set is Hb (l1,a1,b1,l2,a2,b2,l3,...lt).
+[[col_index_sigma] = sigma_col_index_new(A,B,l,l_present,Hb,t,T)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/3d7bdfe1b085e48f9b9400424a3328a0794a8d8f/finite%20long%20horizon/unitilities/tau_col_index_new.m) at stage t when its current state is l_present, the available information set is Hb=[l1,a1,b1,l2,a2,b2,l3,...lt]
 
 ### 5. Dual games and the sufficient statistic update
 
