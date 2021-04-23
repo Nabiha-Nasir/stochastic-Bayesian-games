@@ -1,4 +1,4 @@
-function [tau,mu] = fn_primal_game_p2(T,A,B,k,l,lm,P,Q,p,q,G)
+function [tau,mu,v2] = fn_primal_game_p2(T,A,B,k,l,lm,P,Q,p,q,G)
 %%% to get player 2's optimal strategy and mu
     warning('off')
     if k==size(P{1,1},1) && l==size(Q{1,1},1) && A==size(G{1,1},1) && B==size(G{1,1},2)
