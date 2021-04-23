@@ -27,3 +27,8 @@ Call the function [fn_primal_game_p1](https://github.com/Nabiha-Nasir/stochastic
 #### step 3: Run Game
 
 ![image](https://user-images.githubusercontent.com/62413691/115869981-9fa6be80-a40c-11eb-8b75-446080e6859f.png)
+
+#### About the files of this folder
+
+The code window_by_window_method.m is an example of 36 stage game and both of the player uses window by window method to compute their strategies. The files and functions required to run the code are in the utilities folder. 
+
