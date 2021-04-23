@@ -34,7 +34,6 @@ LP for player 2:
 The primal game LP of player 1 can be solved by using the function **[sigma,nu] = fn_primal_game_p1(T,A,B,k,l,lm,P,Q,p,q,G)**. 
 
 **Inputs:** 
-
 - **T**: Total number of stages in the game
 - **A**: The number of actions of player 1
 - **B**: The number of actions of player 2
@@ -47,9 +46,11 @@ The primal game LP of player 1 can be solved by using the function **[sigma,nu] 
 - **G**: Payoff Matrix, Format of G in the matlab code: If the actions (a,b)=(1,1) then G{1,1}= [108.89,113.78;108.89,113.78]
 - **lm**: To create discounted game (0< lm<1)
 
-
 **Outputs:**
-**sigma**: The optimal strategy of player 1 which is a probability distribution over player 1's actions to play optimally. The action can be chosen by the function [choose_action]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/eea7a9e0a24a1acc7d0f17bb9aeb07595dea4ff8/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/choose_action.m), [a] = choose_action(sigma,A,sigma_col_index_new(A,B,k,k_present,Ha,t,[~,n_is1]=info_I(T,A,B,k))) at stage t when its current state is k_present, the available information set is Ha (provide the orginization of Ha too), the set of total number of possible information sets of player 1 at each stage n_is1(). mod code to ensure the 
+**sigma**: The optimal strategy of player 1 which is a probability distribution over player 1's actions to play optimally. The action can be chosen by the function [choose_action]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/eea7a9e0a24a1acc7d0f17bb9aeb07595dea4ff8/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/choose_action.m), [a] = choose_action(sigma,A,
+[[col_index_sigma] = sigma_col_index_new(A,B,k,k_present,Ha,t,T)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/ab0538a8d4ff0bc1c9db4dbb0af1ccddbb09de19/finite%20long%20horizon/unitilities/sigma_col_index_new.m)
+
+sigma_col_index_new(A,B,k,k_present,Ha,t,[~,n_is1]=info_I(T,A,B,k))) at stage t when its current state is k_present, the available information set is Ha (provide the orginization of Ha too), the set of total number of possible information sets of player 1 at each stage n_is1(). mod code to ensure the 
 **nu**: The initial vector payoff over player 2's state in the dual game. It is one of the sufficient statistics elements of player 1 in dual game. We will use this term in dual game LP. 
 
 #### 3.2 The LP code of player 2 (provided in [fn_primal_game_p2](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/fd1de8441f69b0b8faa7cba65ce23180b5cdabd0/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/fn_primal_game_p2.m))
