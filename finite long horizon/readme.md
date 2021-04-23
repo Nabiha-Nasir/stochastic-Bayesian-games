@@ -1,6 +1,6 @@
 ### Window by window algorithm
 
-Assume the computational capacity only allow us to compute security strategies in games with n<N stages in a timely manner. For every n stages, we can compute and apply the security strategies in the n-stage game periodically. The problem is that, except the first window, no player has full access to the belief (p,q) in the other windows and cannot compute the security strategy in the primal game.
+Assume the computational capacity only allow us to compute security strategies in games with T<N stages in a timely manner. For every n stages, we can compute and apply the security strategies in the n-stage game periodically. The problem is that, except the first window, no player has full access to the belief (p,q) in the other windows and cannot compute the security strategy in the primal game.
 To solve this problem, we propose a window-by-window dual game based strategy as follows. 
 
 #### step 1: Initialization
