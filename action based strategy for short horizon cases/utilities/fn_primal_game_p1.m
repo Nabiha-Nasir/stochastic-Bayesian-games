@@ -1,4 +1,4 @@
-function [sigma,nu] = fn_primal_game_p1(T,A,B,k,l,lm,P,Q,p,q,G)
+function [sigma,nu,v1] = fn_primal_game_p1(T,A,B,k,l,lm,P,Q,p,q,G)
 %%% to get player 1's optimal strategy and nu
     warning('off')
     if k==size(P{1,1},1) && l==size(Q{1,1},1) && A==size(G{1,1},1) && B==size(G{1,1},2)
