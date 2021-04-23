@@ -10,7 +10,7 @@ We are interested in a computationally efficient way to find the optimal solutio
 
 The one stage **payoff G(at ,kt , bt ,lt)** is decided by both players’ private states and actions. We prefer to write it in a **matrix form G_{kt,lt}(at, bt)**. G{kt,lt} is a payoff matrix when the private states are kt and lt. player 1 decides row index (at), and player 2 decides the column index (bt). Take the following payoff matrices as an example. If player 1’s private state k=2 and player 2’s private state l=1, the corresponding payoff matrix is the third matrix highlighted. If player 1 plays action 1 and player 2 plays action 2, the current one stage payoff is 107.38, the element in row 1 column 2 of the matrix.
 
-![Picture1](https://github.com/Li-Lichun-Lab/stochastic-Bayesian-games/blob/main/pics/Picture1.png)
+<img src="https://user-images.githubusercontent.com/62413691/115833217-c56a9e00-a3e1-11eb-8094-105ef2255200.png" width="650" height="60">
 
 The private states are initially chosen according to the independent **initial probability distribution ‘p’ for player 1, and ‘q’ for player 2**. 
 
@@ -35,12 +35,18 @@ The primal game LP of player 1 can be solved by using the function **[sigma,nu] 
 
 **Inputs:** 
 
--- T: Total number of stages in the game.
+- **T**: Total number of stages in the game
+- **A**: The number of actions of player 1
+- **B**: The number of actions of player 2
+- **k**: The number of private state of player 1
+- **l**: The number of private state of player 2
+- **P**: Transition matrix of player 1. Format of P in the matlab code: If the actions (a,b)=(1,2) then P{1,2}=[.4 .5 .1; .2 .3 .5; .4 .4 .2 ]= [Pr(k1,k1), Pr(k1,k2), Pr(k1,k3); Pr(k2,k1), Pr(k2,k2), Pr(k2,k3); Pr(k3,k1), Pr(k3,k2), Pr(k3,k3)]. Notice that the state is jumping from row element to column element. Please make sure every element of P is non-negative and every row sums to 1.
+- **Q**: Transition matrix of player 2. Format of Q in the matlab code: If the actions (a,b)=(1,1) then Q{1,1}=[.4 .5 .1; .2 .3 .5; .4 .4 .2 ]=[Pr(l1,l1), Pr(l1,l2); Pr(l2,l1), Pr(l2,l2)]. Notice that the state is jumping from row element to column element. Please make sure every element of Q is non-negative and every row sums to 1.
+- **p**: Initial probability of player 1's initial state. Matlab code format: p=[0.5 0.3 0.2]=[Pr(k1) Pr(k2) Pr(k3)]
+- **q**: Initial probability of player 2's initial state. Matlab code format: p=[0.5 0.5]=[Pr(l1) Pr(2)]
+- **G**: Payoff Matrix, Format of G in the matlab code: If the actions (a,b)=(1,1) then G{1,1}= [108.89,113.78;108.89,113.78]
+- **lm**: To create discounted game (0< lm<1)
 
--A is the number of actions of player 1
-B are the number of actions of player 2
-k is the number of private state of player 1 and l is the number of private state of player 2. lm (0< lm<1) is to create discounted game. The value of lm should be between 0 to 1. If lm<1 and the number of stages of the game is finite then it creates truncated discounted game. If lm<1 and the number of stages of the game is infinite then it creates discounted game. P is the transition matrices of player 1. The matrix form of P is **P_{at, bt}(k,k')**. For example, P_{at=1, bt=1} is given by the following matlab code [...same as matlab ]. Notice that the state is jumping from row element to column element. Please make sure every element is non-negative and every row sums to 1. It provides a probability matrix of player 1's state to jump from one state (k) to another state (k') when the current action of player 1 is at and player 2 is bt. 
-Q is the transition matrices of player 2. For example, Q_{at=1, bt=1} can be expressed as [...same as matlab ]. It provides a probability matrix of player 2's state to jump from one state (l) to another state (l') when the current action of player 1 is at and player 2 is bt. p is a row vector which the independent initial probability of player 1's initial state. For example, p=[p1 p2 p3] where p1 is the probability of player 1's initial state to be 1. Similaryly, q is a row vector which the independent initial probability of player 2's initial state. For example, q=[q1 q2 q3] where q1 is the probability of player 2's initial state to be 1. G is the payoff matrix and its matrix form is G_{kt,lt}(at, bt).
 
 **Outputs:**
 **sigma**: The optimal strategy of player 1 which is a probability distribution over player 1's actions to play optimally. The action can be chosen by the function [choose_action]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/eea7a9e0a24a1acc7d0f17bb9aeb07595dea4ff8/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/choose_action.m), [a] = choose_action(sigma,A,sigma_col_index_new(A,B,k,k_present,Ha,t,[~,n_is1]=info_I(T,A,B,k))) at stage t when its current state is k_present, the available information set is Ha (provide the orginization of Ha too), the set of total number of possible information sets of player 1 at each stage n_is1(). mod code to ensure the 
