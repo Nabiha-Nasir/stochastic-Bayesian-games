@@ -39,18 +39,16 @@ The primal game LP of player 1 can be solved by using the function **[sigma,nu] 
 - **B**: The number of actions of player 2
 - **k**: The number of private state of player 1
 - **l**: The number of private state of player 2
-- **P**: Transition matrix of player 1. Format of P in the matlab code: If the actions (a,b)=(1,2) then P{1,2}=[.4 .5 .1; .2 .3 .5; .4 .4 .2 ]= [Pr(k1,k1), Pr(k1,k2), Pr(k1,k3); Pr(k2,k1), Pr(k2,k2), Pr(k2,k3); Pr(k3,k1), Pr(k3,k2), Pr(k3,k3)]. Notice that the state is jumping from row element to column element. Please make sure every element of P is non-negative and every row sums to 1.
-- **Q**: Transition matrix of player 2. Format of Q in the matlab code: If the actions (a,b)=(1,1) then Q{1,1}=[.4 .5 .1; .2 .3 .5; .4 .4 .2 ]=[Pr(l1,l1), Pr(l1,l2); Pr(l2,l1), Pr(l2,l2)]. Notice that the state is jumping from row element to column element. Please make sure every element of Q is non-negative and every row sums to 1.
-- **p**: Initial probability of player 1's initial state. Matlab code format: p=[0.5 0.3 0.2]=[Pr(k1) Pr(k2) Pr(k3)]
-- **q**: Initial probability of player 2's initial state. Matlab code format: p=[0.5 0.5]=[Pr(l1) Pr(2)]
+- **P**: Transition matrix of player 1. Format of P in the matlab code: If the actions (a,b)=(1,2) then P{1,2}=[.4 .5 .1; .2 .3 .5; .4 .4 .2 ]. In this example, when a=1 and b=2 the probability of player 1's state jump from k=2 to k=2 is 0.3. Notice that the state is jumping from row element to column element. Every element of P should be non-negative and every row sums to 1.
+- **Q**: Transition matrix of player 2. Format of Q in the matlab code: If the actions (a,b)=(1,1) then Q{1,1}=[.8 .2;.5 .5]. In this example, when a=1 and b=2 the probability of player 1's state jump from k=1 to k=2 is 0.5. Notice that the state is jumping from row element to column element. Every element of Q should be non-negative and every row sums to 1.
+- **p**: Initial probability of player 1's initial state. Matlab code format: p=[0.5 0.3 0.2]=[Pr(k=1) Pr(k=2) Pr(k=3)]
+- **q**: Initial probability of player 2's initial state. Matlab code format: p=[0.5 0.5]=[Pr(l=1) Pr(l=2)]
 - **G**: Payoff Matrix, Format of G in the matlab code: If the actions (a,b)=(1,1) then G{1,1}= [108.89,113.78;108.89,113.78]
 - **lm**: To create discounted game (0< lm<1)
 
 **Outputs:**
-**sigma**: The optimal strategy of player 1 which is a probability distribution over player 1's actions to play optimally. The action can be chosen by the function [choose_action]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/eea7a9e0a24a1acc7d0f17bb9aeb07595dea4ff8/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/choose_action.m), [a] = choose_action(sigma,A,
-[[col_index_sigma] = sigma_col_index_new(A,B,k,k_present,Ha,t,T)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/ab0538a8d4ff0bc1c9db4dbb0af1ccddbb09de19/finite%20long%20horizon/unitilities/sigma_col_index_new.m)
-
-sigma_col_index_new(A,B,k,k_present,Ha,t,[~,n_is1]=info_I(T,A,B,k))) at stage t when its current state is k_present, the available information set is Ha (provide the orginization of Ha too), the set of total number of possible information sets of player 1 at each stage n_is1(). mod code to ensure the 
+- **sigma**: The optimal strategy of player 1 which is a probability distribution over player 1's actions to play optimally. The action can be chosen by the function [choose_action]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/eea7a9e0a24a1acc7d0f17bb9aeb07595dea4ff8/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/choose_action.m), [a] = choose_action(sigma,A,
+[[col_index_sigma] = sigma_col_index_new(A,B,k,k_present,Ha,t,T)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/ab0538a8d4ff0bc1c9db4dbb0af1ccddbb09de19/finite%20long%20horizon/unitilities/sigma_col_index_new.m) at stage t when its current state is k_present, the available information set is Ha (k1,a1,b1,k2,a2,b2,k3,...kt).
 **nu**: The initial vector payoff over player 2's state in the dual game. It is one of the sufficient statistics elements of player 1 in dual game. We will use this term in dual game LP. 
 
 #### 3.2 The LP code of player 2 (provided in [fn_primal_game_p2](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/fd1de8441f69b0b8faa7cba65ce23180b5cdabd0/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/fn_primal_game_p2.m))
