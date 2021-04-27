@@ -1,4 +1,4 @@
-### Receding horizon algorithm
+### Receding Horizon Algorithm
 Assume there is a game which runs for infinite number of stages and the computational capacity only allow us to compute security strategies in games with T<N stages in a timely manner. For this situation we have introduced receding horizon algorithm where players compute the optimal strategies for first T stages and take action for the first stage. Then move the T sized window 1 stage ahead, compute the optimal strategies and take action for the first stage of that window which is actually the 2nd stage in the game horizon. The performance of this algorithm is better than window by window method as at each stage it is computing the sufficient statistic based optimal strategy and take action accordingly. 
 
 #### Step 1: Initialization
@@ -24,14 +24,15 @@ In this step, you need to tell the code the basic information about the game. Th
 ![image](https://user-images.githubusercontent.com/62413691/115906826-0e4c4200-a436-11eb-9033-935d2413d723.png)
 
 #### Step 2: Compute the initial vector payoff and strategy at stage 1
-At stage 1, call function [fn_primal_game_p1]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/936a572474f692ff7be8e14bc090d2b04601ad39/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/fn_primal_game_p1.m) to compute the initial vector payoff nu and the optimal strategy of player 1 sigma. Call function [fn_primal_game_p2]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/936a572474f692ff7be8e14bc090d2b04601ad39/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/fn_primal_game_p2.m) to compute the initial vector payoff mu and the optimal strategy of player 2 tau.
+At stage t=1, call function [fn_primal_game_p1]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/936a572474f692ff7be8e14bc090d2b04601ad39/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/fn_primal_game_p1.m) to compute the initial vector payoff 'nu' and the optimal strategy of player 1 'sigma'. Then player 1 takes its stage action according to 'sigma' . 
+Call function [fn_primal_game_p2]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/936a572474f692ff7be8e14bc090d2b04601ad39/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/fn_primal_game_p2.m) to compute the initial vector payoff 'mu' and the optimal strategy of player 2 'tau'. Player 2 takes 1st stage action according to 'tau'.
 
 
+#### Step 3: Run from stage 2 to infinite
+The receding horizon algorithm to run from stage 2 to infinite is given in Fig. 4
 
-#### Step 3: Run the Game
-The receding horizon algorithm to run the game is given in Fig. 4
-
-![image](https://user-images.githubusercontent.com/62413691/115909649-cb8c6900-a439-11eb-8994-50ea50eb9e74.png)
+<img src="https://user-images.githubusercontent.com/62413691/116226509-0be13500-a721-11eb-9ffa-94eae4014709.png" width="400"> 
+Fig. 4: Receding Horizon Algorithm
 
 
 #### About the files of this folder
