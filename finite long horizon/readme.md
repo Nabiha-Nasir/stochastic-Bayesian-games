@@ -30,7 +30,7 @@ In this step, you need to tell the code the basic information about the game. Th
 The window by window algorithm is given in Fig. 3.
 
 ![image](https://user-images.githubusercontent.com/62413691/116214009-48f2fa80-a714-11eb-87ea-08d16d7a2b0b.png)
-Fig. 3
+Fig. 3: Window by window method
 
 #### About the files of this folder
 
