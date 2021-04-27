@@ -199,7 +199,7 @@ The LP of player 1 can be solved by using the function **[alpha_vector] = fn_dua
 - **Q**: The format of transition matrices in Fig. 2 in Matlab code is given below.
 ![image](https://user-images.githubusercontent.com/62413691/116102535-ca974980-a67c-11eb-9109-f208c61bde5e.png)
 
-- **p**: For first stage p is the initial probability of player 1's initial state. For other stages p is the updated belief for next stage which depends on current stage's action of player 1 (a) and player 2(b) and the optimal strategy of player 1 at current stage (X). The updated p can be found using the function [[p_present] = update_belief_li_pplus(k,p,X,a,b,P)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/6ff7988a02b6d6b0514d11cb0f077386e98ff878/finite%20long%20horizon/unitilities/update_belief_li_pplus.m) Matlab code format: p=[0.5 0.3 0.2]=[Pr(k=1) Pr(k=2) Pr(k=3)]
+- **p**: For first stage p is the initial probability of player 1's initial state. For other stages p is the updated belief for next stage which depends on current stage's action of player 1 (a) and player 2(b) and the optimal strategy of player 1 at current stage (X). The updated p can be found using the function [[p_present] = update_belief_li_pplus(k,p,X,a,b,P)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/6ff7988a02b6d6b0514d11cb0f077386e98ff878/finite%20long%20horizon/unitilities/update_belief_li_pplus.m). Matlab code format: p=[0.5 0.3 0.2]=[Pr(k=1) Pr(k=2) Pr(k=3)]
 - **G**:  The format of payoff matrices in Fig. 1 in Matlab code is given below.
 ![image](https://user-images.githubusercontent.com/62413691/116102770-f9adbb00-a67c-11eb-9142-654be36cea4b.png)
 
@@ -223,7 +223,7 @@ col_index_alpha=(a-1)* B* l+(b-1)* l
 
 nu_plus=alpha_vector(1,col_index_alpha+1:col_index_alpha+l)
 
-The size of nu_plus should be same as the initial probability of player 2's state q.
+The size of updated nu should be same as the initial probability of player 2's state q.
 
 #### 5.2 The LP code of player 2 (provided in [fn_dual_game_2nd_P2](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/ad98cf1406b1d8756714a8e42e933cb0e46423f3/finite%20long%20horizon/window_by_window_method/unitilities/fn_dual_game_2nd_P2.m))
 
@@ -238,7 +238,7 @@ The LP of player 2 can be solved by using the function **[beta_vector] = fn_dual
 - **l**: The number of private states of player 2
 - **P**: Transition matrix of player 1. Format of P in the matlab code: If k=2, P(at,bt}=[Pr(kt=1,k(t+1)=1) Pr(kt=1,k(t+1)=2); Pr(kt=2,k(t+1)=1) Pr(kt=2,k(t+1)=2)]. For example, when k=3 and the actions (a,b)=(1,2) then P{1,2}=[.4 .5 .1; .2 .3 .5; .4 .4 .2 ]. Here, when a=1 and b=2 the probability of player 1's state jump from k=2 to k=2 is 0.3. Notice that the state is jumping from row element to column element. Every element of P should be non-negative and every row sums to 1.
 - **Q**: Transition matrix of player 2. Format of Q in the matlab code: If l=2, P(at,bt}=[Pr(lt=1,l(t+1)=1) Pr(lt=1,l(t+1)=2); Pr(lt=2,l(t+1)=1) Pr(lt=2,l(t+1)=2)]. For example, when l=3 and the actions (a,b)=(1,1) then Q{1,1}=[.8 .2;.5 .5]. In this example, when a=1 and b=2 the probability of player 1's state jump from l=1 to l=2 is 0.5. Notice that the state is jumping from row element to column element. Every element of Q should be non-negative and every row sums to 1.
-- **q**: For first stage p is the initial probability of player 2's initial state. For other stages q is the updated belief for next stage which depends on current stage's action of player 1 (a) and player 2(b) and the optimal strategy of player 2 at current stage (Y). The updated q can be found using the function [[q_present] = update_belief_li_qplus(l,q,Y,a,b,Q)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/6ff7988a02b6d6b0514d11cb0f077386e98ff878/finite%20long%20horizon/unitilities/update_belief_li_qplus.m) Matlab code format: p=[0.5 0.3 0.2]=[Pr(k=1) Pr(k=2) Pr(k=3)]
+- **q**: For first stage p is the initial probability of player 2's initial state. For other stages q is the updated belief for next stage which depends on current stage's action of player 1 (a) and player 2(b) and the optimal strategy of player 2 at current stage (Y). The updated q can be found using the function [[q_present] = update_belief_li_qplus(l,q,Y,a,b,Q)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/6ff7988a02b6d6b0514d11cb0f077386e98ff878/finite%20long%20horizon/unitilities/update_belief_li_qplus.m). Matlab code format: p=[0.5 0.3 0.2]=[Pr(k=1) Pr(k=2) Pr(k=3)].
 - **G**: Payoff Matrix, Format of G in the matlab code: If the actions (kt,lt)=(1,1) then G{1,1}= [108.89,113.78;108.89,113.78]
 - **lm**: To create discounted game (0< lm<1)
 - **mu**: The initial vector payoff over player 1's state in the dual game. It is one of the sufficient statistics elements of player 2 in dual game. We get this value from primal game of player 2 ( [fn_primal_game_p2](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/fd1de8441f69b0b8faa7cba65ce23180b5cdabd0/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/fn_primal_game_p2.m) ).
@@ -246,13 +246,21 @@ The LP of player 2 can be solved by using the function **[beta_vector] = fn_dual
 
 **Outputs:** 
 
-**beta_vector**: The updated vector payoff over player 1's state for all possible action set (at,bt) of the current stage t. For example, if player 1 has 3 states and 2 actions and player 2 has 2 actions beta_vector=[ (beta1 beta2 beta3) (beta4 beta5 beta6) (beta7 beta8 beta9) (beta10 beta11 beta12)] where (beta4 beta5 beta6) is the vector payoff over player 1's state (k=1,k=2, k=3) when player 1's action is 1 and player 2's action is 2. If the current action of player 1 and 2 is 'a' and 'b' then we can get the updated mu using the following two line of code.
+**beta_vector**: The updated vector payoff over player 1's state for all possible action set (at,bt) of the current stage t. Take the following Fig as an example. At stage t if player 1's action is a=2 and player 2's action is b=1 then the vector payoff of over player 1's state is [-177.99 -66.07 -8.30] (the highlighted part in the Fig).
+
+<img src="pics/beta_vector.PNG" width="400"> 
+
+The beta_vector is presented as a row vector in the matlab code. An example of the format of alpha_vector in the matlab code is given below.
+
+![](pics/beta_matlab.PNG)
+
+If the current action of player 1 and 2 is 'a' and 'b' then we can get the updated mu using the following two line of code.
 
 col_index_beta=(a-1)* B* k+(b-1)* k
 
 mu_plus=beta_vector(1,col_index_beta+1:col_index_beta+k)
 
-The size of mu_plus should be same as the initial probability of player 1's state p.
+The size of updated mu should be same as the initial probability of player 1's state p.
 
 ### 6. How to use these codes
 
