@@ -69,8 +69,8 @@ The primal game LP of player 1 can be solved by using the function **[tau,mu,v2]
 - **T**: Total number of stages in the game
 - **A**: The number of actions of player 1
 - **B**: The number of actions of player 2
-- **k**: The number of private state of player 1
-- **l**: The number of private state of player 2
+- **k**: The number of private states of player 1
+- **l**: The number of private states of player 2
 - **P**: The format of transition matrices in Fig. 2 in Matlab code is given below.
 ![image](https://user-images.githubusercontent.com/62413691/116102425-b2272f00-a67c-11eb-8e90-afb418449c78.png)
 
@@ -121,8 +121,8 @@ The dual game LP of player 1 can be solved by using the function **[sigma] = fn_
 - **T**: Total number of stages in the game
 - **A**: The number of actions of player 1
 - **B**: The number of actions of player 2
-- **k**: The number of private state of player 1
-- **l**: The number of private state of player 2
+- **k**: The number of private states of player 1
+- **l**: The number of private states of player 2
 - **P**: The format of transition matrices in Fig. 2 in Matlab code is given below.
 ![image](https://user-images.githubusercontent.com/62413691/116102425-b2272f00-a67c-11eb-8e90-afb418449c78.png)
 
@@ -150,8 +150,8 @@ The dual game LP of player 2 can be solved by using the function **[tau] = fn_fu
 - **T**: Total number of stages in the game
 - **A**: The number of actions of player 1
 - **B**: The number of actions of player 2
-- **k**: The number of private state of player 1
-- **l**: The number of private state of player 2
+- **k**: The number of private states of player 1
+- **l**: The number of private states of player 2
 - **P**: The format of transition matrices in Fig. 2 in Matlab code is given below.
 ![image](https://user-images.githubusercontent.com/62413691/116102425-b2272f00-a67c-11eb-8e90-afb418449c78.png)
 
@@ -191,8 +191,8 @@ The LP of player 1 can be solved by using the function **[alpha_vector] = fn_dua
 - **T**: Total number of stages in the game
 - **A**: The number of actions of player 1
 - **B**: The number of actions of player 2
-- **k**: The number of private state of player 1
-- **l**: The number of private state of player 2
+- **k**: The number of private states of player 1
+- **l**: The number of private states of player 2
 - **P**: The format of transition matrices in Fig. 2 in Matlab code is given below.
 ![image](https://user-images.githubusercontent.com/62413691/116102425-b2272f00-a67c-11eb-8e90-afb418449c78.png)
 
@@ -209,7 +209,15 @@ The LP of player 1 can be solved by using the function **[alpha_vector] = fn_dua
 
 **Outputs:** 
 
-**alpha_vector**: The updated vector payoff over player 2's state for all possible action set (at,bt) of the current stage t. For example, if player 2 has 2 states and 2 actions and player 1 has 2 actions then alpha_vector=[ (alpha1 alpha2) (alpha3 alpha4) (alpha5 alpha6) (alpha7 alpha8)] where (alpha3 alpha4) is the vector payoff over player 2's state (l=1,l=2) when player 1's action is 1 and player 2's action is 2. If the current action of player 1 and 2 is 'a' and 'b' then we can get the updated nu using the following two line of code.
+**alpha_vector**: The updated vector payoff over player 2's state for all possible action set (at,bt) of the current stage t. Take the following Fig as an example. At stage t if player 1's action is a=1 and player 2's action is b=2 then the vector payoff of over player 2's state is [-60.78 -67.27] (the highlighted part in the Fig).
+
+<img src="pics/alpha_vector.PNG" width="400"> 
+
+The alpha_vector is presented as a row vector in the matlab code. An example of the format of alpha_vector in the matlab code is given below.
+
+![](pics/alpha_matlab.PNG)
+
+If the current action of player 1 and 2 is 'a' and 'b' then we can get the updated nu using the following two line of code.
 
 col_index_alpha=(a-1)* B* l+(b-1)* l
 
@@ -226,8 +234,8 @@ The LP of player 2 can be solved by using the function **[beta_vector] = fn_dual
 - **T**: Total number of stages in the game
 - **A**: The number of actions of player 1
 - **B**: The number of actions of player 2
-- **k**: The number of private state of player 1
-- **l**: The number of private state of player 2
+- **k**: The number of private states of player 1
+- **l**: The number of private states of player 2
 - **P**: Transition matrix of player 1. Format of P in the matlab code: If k=2, P(at,bt}=[Pr(kt=1,k(t+1)=1) Pr(kt=1,k(t+1)=2); Pr(kt=2,k(t+1)=1) Pr(kt=2,k(t+1)=2)]. For example, when k=3 and the actions (a,b)=(1,2) then P{1,2}=[.4 .5 .1; .2 .3 .5; .4 .4 .2 ]. Here, when a=1 and b=2 the probability of player 1's state jump from k=2 to k=2 is 0.3. Notice that the state is jumping from row element to column element. Every element of P should be non-negative and every row sums to 1.
 - **Q**: Transition matrix of player 2. Format of Q in the matlab code: If l=2, P(at,bt}=[Pr(lt=1,l(t+1)=1) Pr(lt=1,l(t+1)=2); Pr(lt=2,l(t+1)=1) Pr(lt=2,l(t+1)=2)]. For example, when l=3 and the actions (a,b)=(1,1) then Q{1,1}=[.8 .2;.5 .5]. In this example, when a=1 and b=2 the probability of player 1's state jump from l=1 to l=2 is 0.5. Notice that the state is jumping from row element to column element. Every element of Q should be non-negative and every row sums to 1.
 - **q**: For first stage p is the initial probability of player 2's initial state. For other stages q is the updated belief for next stage which depends on current stage's action of player 1 (a) and player 2(b) and the optimal strategy of player 2 at current stage (Y). The updated q can be found using the function [[q_present] = update_belief_li_qplus(l,q,Y,a,b,Q)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/6ff7988a02b6d6b0514d11cb0f077386e98ff878/finite%20long%20horizon/unitilities/update_belief_li_qplus.m) Matlab code format: p=[0.5 0.3 0.2]=[Pr(k=1) Pr(k=2) Pr(k=3)]
