@@ -43,7 +43,7 @@ The primal game LP of player 1 can be solved by using the function **[sigma,nu,v
 - **k**: The number of private states of player 1
 - **l**: The number of private states of player 2
 - **P**: The format of transition matrices in Fig. 2 in Matlab code is given below.
-<img src="https://user-images.githubusercontent.com/62413691/116102425-b2272f00-a67c-11eb-8e90-afb418449c78.png" width="700">
+![image](https://user-images.githubusercontent.com/62413691/116102425-b2272f00-a67c-11eb-8e90-afb418449c78.png)
 
 - **Q**: The format of transition matrices in Fig. 2 in Matlab code is given below.
 ![image](https://user-images.githubusercontent.com/62413691/116102535-ca974980-a67c-11eb-9109-f208c61bde5e.png)
