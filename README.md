@@ -236,10 +236,16 @@ The LP of player 2 can be solved by using the function **[beta_vector] = fn_dual
 - **B**: The number of actions of player 2
 - **k**: The number of private states of player 1
 - **l**: The number of private states of player 2
-- **P**: Transition matrix of player 1. Format of P in the matlab code: If k=2, P(at,bt}=[Pr(kt=1,k(t+1)=1) Pr(kt=1,k(t+1)=2); Pr(kt=2,k(t+1)=1) Pr(kt=2,k(t+1)=2)]. For example, when k=3 and the actions (a,b)=(1,2) then P{1,2}=[.4 .5 .1; .2 .3 .5; .4 .4 .2 ]. Here, when a=1 and b=2 the probability of player 1's state jump from k=2 to k=2 is 0.3. Notice that the state is jumping from row element to column element. Every element of P should be non-negative and every row sums to 1.
-- **Q**: Transition matrix of player 2. Format of Q in the matlab code: If l=2, P(at,bt}=[Pr(lt=1,l(t+1)=1) Pr(lt=1,l(t+1)=2); Pr(lt=2,l(t+1)=1) Pr(lt=2,l(t+1)=2)]. For example, when l=3 and the actions (a,b)=(1,1) then Q{1,1}=[.8 .2;.5 .5]. In this example, when a=1 and b=2 the probability of player 1's state jump from l=1 to l=2 is 0.5. Notice that the state is jumping from row element to column element. Every element of Q should be non-negative and every row sums to 1.
+- **P**: The format of transition matrices in Fig. 2 in Matlab code is given below.
+![image](https://user-images.githubusercontent.com/62413691/116102425-b2272f00-a67c-11eb-8e90-afb418449c78.png)
+
+- **Q**: The format of transition matrices in Fig. 2 in Matlab code is given below.
+![image](https://user-images.githubusercontent.com/62413691/116102535-ca974980-a67c-11eb-9109-f208c61bde5e.png)
+
 - **q**: For first stage p is the initial probability of player 2's initial state. For other stages q is the updated belief for next stage which depends on current stage's action of player 1 (a) and player 2(b) and the optimal strategy of player 2 at current stage (Y). The updated q can be found using the function [[q_present] = update_belief_li_qplus(l,q,Y,a,b,Q)]( https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/6ff7988a02b6d6b0514d11cb0f077386e98ff878/finite%20long%20horizon/unitilities/update_belief_li_qplus.m). Matlab code format: p=[0.5 0.3 0.2]=[Pr(k=1) Pr(k=2) Pr(k=3)].
-- **G**: Payoff Matrix, Format of G in the matlab code: If the actions (kt,lt)=(1,1) then G{1,1}= [108.89,113.78;108.89,113.78]
+- **G**:  The format of payoff matrices in Fig. 1 in Matlab code is given below.
+![image](https://user-images.githubusercontent.com/62413691/116102770-f9adbb00-a67c-11eb-9142-654be36cea4b.png)
+
 - **lm**: To create discounted game (0< lm<1)
 - **mu**: The initial vector payoff over player 1's state in the dual game. It is one of the sufficient statistics elements of player 2 in dual game. We get this value from primal game of player 2 ( [fn_primal_game_p2](https://github.com/Nabiha-Nasir/stochastic-Bayesian-games/blob/fd1de8441f69b0b8faa7cba65ce23180b5cdabd0/action%20based%20strategy%20for%20short%20horizon%20cases/utilities/fn_primal_game_p2.m) ).
 - **Y_star**: The optimal strategy of player 2 at stage 1 which we can get using primal or dual game LP. 
