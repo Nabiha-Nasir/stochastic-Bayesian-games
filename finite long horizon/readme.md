@@ -27,8 +27,10 @@ In this step, you need to tell the code the basic information about the game. Th
 ![image](https://user-images.githubusercontent.com/62413691/115906826-0e4c4200-a436-11eb-9033-935d2413d723.png)
 
 #### Step 2: Run the Game
+The window by window algorithm is given in Fig. 3.
 
-![](pics/window_by_window.PNG)
+![image](https://user-images.githubusercontent.com/62413691/116214009-48f2fa80-a714-11eb-87ea-08d16d7a2b0b.png)
+Fig. 3
 
 #### About the files of this folder
 
