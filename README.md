@@ -10,15 +10,14 @@ We are interested in a computationally efficient way to find the optimal solutio
 
 The one stage **payoff G(at ,kt , bt ,lt)** is decided by both players’ private states and actions. We prefer to write it in a **matrix form G_{kt,lt}(at, bt)**. G{kt,lt} is a payoff matrix when the private states are kt and lt. player 1 decides row index (at), and player 2 decides the column index (bt). Take the following payoff matrices as an example. If player 1’s private state k=2 and player 2’s private state l=1, the corresponding payoff matrix is the third matrix highlighted. If player 1 plays action 1 and player 2 plays action 2, the current one stage payoff is 107.38, the element in row 1 column 2 of the matrix.
 
-<img src="https://user-images.githubusercontent.com/62413691/115833217-c56a9e00-a3e1-11eb-8094-105ef2255200.png" width="650" height="60"> 
+<img src="https://user-images.githubusercontent.com/62413691/115833217-c56a9e00-a3e1-11eb-8094-105ef2255200.png" width="700"> 
 Fig. 1 An example of payoff matrices
-
 
 The private states are initially chosen according to the independent **initial probability distribution ‘p’ for player 1, and ‘q’ for player 2**. 
 
 After stage 1, the private states of both players will change according to the Markovian rules that depend on the current actions and the current private states of both players. **Player 1’s state jumping (or transition) rule is P_{ab}(k,k’)**. It means the probability of jumping from state k to k’ if current action pair is (a,b). **Player 2’s state jumping (or transition) rule is Q_{ab}(l,l’)**. It means the probability of jumping from state l to l’ if the current action pair is (a,b). Let’s take the following transition matrices as an example. Assume the current action pair is (a=1, b=2). That is player 1 plays row 1 and player 2 plays column 2. In this case, the transition matrices for player 1 and 2 are highlighted as in the figure. If player 1’s current private state is 3, the probability of its next private state being 2 will be 0.4, the element in row 3 column 2 of the highlighted (yellow) transition matrix P. If player 2’s current state is 1, the probability of its private state being 2 will be 0.8, the element in row 1 column 2 of highlighted (green) transition matrix Q. 
 
-<img src="https://user-images.githubusercontent.com/62413691/115487146-1170e380-a226-11eb-899a-0cad8a113681.png" width="500" height="100">
+<img src="https://user-images.githubusercontent.com/62413691/115487146-1170e380-a226-11eb-899a-0cad8a113681.png" width="700">
 Fig. 2: An example of transition matrices
  
 ### 3. Primal game and its LPs in finite horizon (action based strategy). 
@@ -44,7 +43,7 @@ The primal game LP of player 1 can be solved by using the function **[sigma,nu,v
 - **k**: The number of private states of player 1
 - **l**: The number of private states of player 2
 - **P**: The format of transition matrices in Fig. 2 in Matlab code is given below.
-![image](https://user-images.githubusercontent.com/62413691/116102425-b2272f00-a67c-11eb-8e90-afb418449c78.png)
+<img src="https://user-images.githubusercontent.com/62413691/116102425-b2272f00-a67c-11eb-8e90-afb418449c78.png" width="700">
 
 - **Q**: The format of transition matrices in Fig. 2 in Matlab code is given below.
 ![image](https://user-images.githubusercontent.com/62413691/116102535-ca974980-a67c-11eb-9109-f208c61bde5e.png)
